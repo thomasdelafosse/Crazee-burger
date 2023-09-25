@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import OrderPage from '../order/OrderPage';
+import { Link } from 'react-router-dom';
 
 export default function LoginForm() {
       // state
@@ -11,9 +12,6 @@ export default function LoginForm() {
         setPrenom('');
       }
       
-      const handleClick = (event) => {
-        <OrderPage />
-      }
       const handleChange = (event) => {
         setPrenom(event.target.value);
       }
@@ -32,7 +30,7 @@ export default function LoginForm() {
               value={prenom}
               onChange={handleChange}
             ></input>
-          <button onClick={handleClick}>Accéder à votre espace</button>
+            <Link to="/order"><button>Accéder à votre espace</button></Link>
         </form>
       </>
   )
