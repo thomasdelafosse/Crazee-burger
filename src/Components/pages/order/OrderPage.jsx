@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
-import LoginForm from '../login/LoginForm'
+import LoginPage from '../Login/LoginPage';
 
 export default function OrderPage() {
+  const [prenom, setPrenom] = useState('');
 
-    const [prenom, setPrenom] = useState('');
-
-    const handleClick = (event) => {
-        <LoginForm/>
-    }
+  const deconnexion = (event) => {
+    <LoginPage />
+  }
   return (
-    <div>OrderPage
-        <h1>Bonjour ${prenom}</h1>
-        <button onClick={handleClick}>deconnexion</button>
+    <div>
+      
+        <h1>Bonjour {prenom}</h1>
+        <button onClick={deconnexion}>déconnexion</button>
     </div>
   )
 }
