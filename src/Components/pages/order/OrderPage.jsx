@@ -1,17 +1,19 @@
-import React, { useState } from 'react'
-import LoginForm from '../login/LoginForm'
+import { Link, useParams } from "react-router-dom";
 
 export default function OrderPage() {
+// state
+const { inputValue } = useParams()
+// comportements
 
-    const [prenom, setPrenom] = useState('');
-
-    const handleClick = (event) => {
-        <LoginForm/>
-    }
+//render
   return (
-    <div>OrderPage
-        <h1>Bonjour ${prenom}</h1>
-        <button onClick={handleClick}>deconnexion</button>
+    <div>
+      <h1>Bonjour { inputValue } </h1>
+        <Link to="/">
+          <button>
+            Se deconnecter
+          </button>
+        </Link>
     </div>
   )
 }

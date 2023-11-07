@@ -1,11 +1,19 @@
-import { useState } from 'react'
 import './App.css'
-import LoginPage from './Components/pages/login/LoginPage'
+import { useState } from 'react'
+import { Route, Routes } from 'react-router-dom'
+import LoginPage from './Components/pages/Login/LoginPage'
+import OrderPage from './Components/pages/order/OrderPage'
+import ErrorPage from './Components/pages/error/ErrorPage'
+
 
 function App() {
 return(
-  <LoginPage />
-)
-}
+  <Routes>
+    <Route path="/" element={<LoginPage />} />
+    <Route path="/order/:inputValue" element={<OrderPage/>} />
+    <Route path="*" element={<ErrorPage />} />
+  </Routes>
+)}
+
 
 export default App
