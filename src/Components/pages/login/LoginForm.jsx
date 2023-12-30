@@ -20,7 +20,6 @@ export default function LoginForm() {
       }
       
   return (
-    <>
         <LoginFormStyled action ="submit" onSubmit={handleSubmit}>
           <div><h1>Bienvenue chez nous !</h1>
           <hr />
@@ -42,11 +41,10 @@ export default function LoginForm() {
               <IoChevronForward className="icon"/>
             </button>
         </LoginFormStyled>
-      </>
   )
 }
 
-const LoginFormStyled = styled.div`
+const LoginFormStyled = styled.form`
   text-align: center;
   max-width: 500px;
   min-width: 400px;
