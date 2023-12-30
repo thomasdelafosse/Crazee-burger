@@ -13,7 +13,6 @@ export default function Logo(){
 
 
 const LogoStyled = styled.div`
-border: 1px solid red;
 display: flex;
 align-items: center;
 transform: scale(2.5);
