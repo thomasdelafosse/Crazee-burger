@@ -21,7 +21,7 @@ const LoginPageStyled = styled.div`
 
     ::before {
       content: "";
-      background: url("images/burger-background.jpg");
+      background-image: url("images/burger-background.jpg");
       background-size: cover;
       background-position: center;
       background-blend-mode: darken;
@@ -34,4 +34,3 @@ const LoginPageStyled = styled.div`
       z-index: -1;
     }
 `
-    

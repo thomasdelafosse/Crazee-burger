@@ -22,7 +22,7 @@ export default function LoginForm() {
   return (
     <>
         <LoginFormStyled action ="submit" onSubmit={handleSubmit}>
-          <div className='body'><h1>Bienvenue chez nous !</h1>
+          <div><h1>Bienvenue chez nous !</h1>
           <br />
           <h2>Connectez vous</h2>
           </div>
