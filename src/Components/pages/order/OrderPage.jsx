@@ -2,28 +2,38 @@ import { Link, useParams } from "react-router-dom";
 import Logo from "../../reusable-ui/Logo";
 import styled from "styled-components";
 import { theme } from "../../../theme";
-import { BsPersonCircle } from "react-icons/bs";
 import NavBar from "./NavBar";
+import MainPage from "./MainPage";
 
 export default function OrderPage() {
   const { inputValue } = useParams();
 
   return (
     <OrderPageStyled>
-      <Logo />
-      <NavBar className="nav" id={inputValue} />
-      <Link to="/">
-        <button>Se déconnecter</button>
-        <BsPersonCircle className="icon" />
-      </Link>
+      <div className="container">
+        <NavBar id={inputValue} />
+        <MainPage />
+      </div>
     </OrderPageStyled>
   );
 }
 
 const OrderPageStyled = styled.div`
-  border: 10px solid red;
+  background-color: ${theme.colors.primary};
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  .icon {
-    color: red;
+  .container {
+    background: red;
+    height: 95vh;
+    width: 1400px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .topLeft {
+    transform: scale(0.4);
   }
 `;
