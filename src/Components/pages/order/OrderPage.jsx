@@ -11,7 +11,7 @@ export default function OrderPage() {
   return (
     <OrderPageStyled>
       <div className="container">
-        <NavBar id={inputValue} />
+        <NavBar id={inputValue} inputValue={inputValue} />
         <MainPage />
       </div>
     </OrderPageStyled>
@@ -31,9 +31,5 @@ const OrderPageStyled = styled.div`
     width: 1400px;
     display: flex;
     flex-direction: column;
-  }
-
-  .topLeft {
-    transform: scale(0.4);
   }
 `;
