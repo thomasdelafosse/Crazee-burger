@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { theme } from "../../../theme";
 
 export default function MainPage() {
-  return <MainPageStyled>MAIN</MainPageStyled>;
+  return <MainPageStyled></MainPageStyled>;
 }
 
 const MainPageStyled = styled.div`

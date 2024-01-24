@@ -1,5 +1,4 @@
-import { Link, useParams } from "react-router-dom";
-import Logo from "../../reusable-ui/Logo";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { theme } from "../../../theme";
 import NavBar from "./NavBar";

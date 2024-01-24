@@ -1,10 +1,8 @@
 import React from "react";
-import { BsPersonCircle } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Logo from "../../reusable-ui/Logo";
 import NavBarRightSide from "./NavBarRightSide";
-import { theme } from "../../../theme";
 
 export default function NavBar({ inputValue }) {
   return (
