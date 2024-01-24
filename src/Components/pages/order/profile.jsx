@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { theme } from "../../../theme";
 
-export default function Profile({ username }) {
+export default function Profile({ id }) {
   return (
     <ProfileStyled>
       <div className="info">
         <p>
-          Hey, <b>{username}</b>
+          Hey, <b>{id}</b>
         </p>
         <Link to="/">
           <div className="description">

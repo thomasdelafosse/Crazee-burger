@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import ProfileStyled from "./profile";
 
-export default function NavBarRightSide({}) {
+export default function NavBarRightSide({ id }) {
   return (
     <NavBarRightSideStyled>
       {/* <div className="admin-button">ACTIVER LE MODE ADMIN</div> */}
-      <ProfileStyled />
+      <ProfileStyled id={id} />
     </NavBarRightSideStyled>
   );
 }
