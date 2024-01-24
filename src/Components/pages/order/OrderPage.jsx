@@ -26,10 +26,11 @@ const OrderPageStyled = styled.div`
   align-items: center;
 
   .container {
-    background: red;
     height: 95vh;
     width: 1400px;
     display: flex;
     flex-direction: column;
+    box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
+    border-radius: 15px 15px 15px 15px;
   }
 `;
