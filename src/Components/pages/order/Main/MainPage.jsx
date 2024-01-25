@@ -1,9 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../theme";
+import MenuStyled from "./Menu";
 
 export default function MainPage() {
-  return <MainPageStyled></MainPageStyled>;
+  return (
+    <MainPageStyled>
+      <MenuStyled />
+    </MainPageStyled>
+  );
 }
 
 const MainPageStyled = styled.div`
