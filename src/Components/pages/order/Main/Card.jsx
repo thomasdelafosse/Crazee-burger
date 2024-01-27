@@ -3,13 +3,16 @@ import PrimaryButton from "../../../reusable-ui/PrimaryButton";
 import { fakeMenu2 } from "../../../fakeData/fakeMenu";
 import { formatPrice } from "/src/Components/utils/maths";
 
-export default function Card({ img, title }) {
-  const getPrice = fakeMenu2.find((price) => price.id === 1);
-  const priceReduce = formatPrice(getPrice.price);
+export default function Card({ image, title }) {
+  // Trouver l'élément correspondant dans fakeMenu2 en fonction du titre
+  const menuItem = fakeMenu2.find((item) => item.title === title);
+
+  // Vérifier si l'élément a été trouvé avant d'accéder à son prix
+  const priceReduce = menuItem ? formatPrice(menuItem.price) : "";
 
   return (
     <CardStyled>
-      <ImgStyled src={img} alt="burger-bacon-egg" />
+      <ImgStyled src={image} alt="image" />
       <InfoCardStyled className="InfoCard">
         <TitleStyled>{title}</TitleStyled>
         <PriceButtonStyled>

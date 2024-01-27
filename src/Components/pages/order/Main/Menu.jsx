@@ -5,52 +5,52 @@ export default function Menu() {
   return (
     <MenuStyled>
       <CardStyled
-        img={"/images/burger-bacon-egg.png"}
+        image={"/images/burger-bacon-egg.png"}
         title={"Burger Smoke BBQ"}
         price={"priceReduce"}
       />
       <CardStyled
-        img={"/images/burger-vegan.png"}
+        image={"/images/burger-vegan.png"}
         title={"Vegan Burger"}
         price={"priceReduce"}
       />
       <CardStyled
-        img={"/images/burger3.png"}
+        image={"/images/burger3.png"}
         title={"Burger poulet"}
         price={"priceReduce"}
       />
       <CardStyled
-        img={"/images/drink1.png"}
+        image={"/images/drink1.png"}
         title={"Coke 25cl"}
         price={"priceReduce"}
       />
       <CardStyled
-        img={"/images/drink2.png"}
+        image={"/images/drink2.png"}
         title={"Pepsi 25cl"}
         price={"priceReduce"}
       />
       <CardStyled
-        img={"/images/drink3.png"}
+        image={"/images/drink3.png"}
         title={"Iced Tea 25cl"}
         price={"priceReduce"}
       />
       <CardStyled
-        img={"/images/frites1.png"}
+        image={"/images/frites1.png"}
         title={"Frites Paprika"}
         price={"priceReduce"}
       />
       <CardStyled
-        img={"/images/fries3.png"}
+        image={"/images/fries3.png"}
         title={"New York Fries"}
         price={"priceReduce"}
       />
       <CardStyled
-        img={"/images/wedges1.png"}
+        image={"/images/wedges1.png"}
         title={"Crispy Potatoes"}
         price={"priceReduce"}
       />
       <CardStyled
-        img={"/images/ice-cream.png"}
+        image={"/images/ice-cream.png"}
         title={"Glaces artisanales"}
         price={"priceReduce"}
       />
