@@ -3,15 +3,15 @@ import PrimaryButton from "../../../reusable-ui/PrimaryButton";
 import { fakeMenu2 } from "../../../fakeData/fakeMenu";
 import { formatPrice } from "/src/Components/utils/maths";
 
-export default function Card() {
+export default function Card({ img, title }) {
   const getPrice = fakeMenu2.find((price) => price.id === 1);
   const priceReduce = formatPrice(getPrice.price);
 
   return (
     <CardStyled>
-      <ImgStyled src="/images/burger-bacon-egg.png" alt="burger-bacon-egg" />
+      <ImgStyled src={img} alt="burger-bacon-egg" />
       <InfoCardStyled className="InfoCard">
-        <TitleStyled>Burger Smoke BBQ</TitleStyled>
+        <TitleStyled>{title}</TitleStyled>
         <PriceButtonStyled>
           {priceReduce}
           <PrimaryButton
