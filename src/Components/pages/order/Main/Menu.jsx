@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import CardStyled from "./Card";
+import CardStyled from "../../../reusable-ui/Card";
+import { theme } from "../../../../theme";
 
 export default function Menu() {
   return (
@@ -59,7 +60,7 @@ export default function Menu() {
 }
 
 const MenuStyled = styled.div`
-  background: #f5f5f7;
+  background: ${theme.colors.background_white};
   box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
   padding: 50px 92.5px 150px;
 

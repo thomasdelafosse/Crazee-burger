@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import PrimaryButton from "../../../reusable-ui/PrimaryButton";
-import { fakeMenu2 } from "../../../fakeData/fakeMenu";
+import PrimaryButton from "./PrimaryButton";
+import { fakeMenu2 } from "../fakeData/fakeMenu";
 import { formatPrice } from "/src/Components/utils/maths";
+import { theme } from "../../theme";
 
 export default function Card({ image, title }) {
   // Trouver l'élément correspondant dans fakeMenu2 en fonction du titre
@@ -39,7 +40,7 @@ const ImgStyled = styled.img`
 const CardStyled = styled.div`
   width: 240px;
   height: 330px;
-  background: #ffffff;
+  background: ${theme.colors.white};
   border-radius: 15px 15px 15px 15px;
   box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
 `;
@@ -57,8 +58,8 @@ const TitleStyled = styled.div`
   width: 185.57px;
   height: 46px;
   font-family: "Amatic SC", sans-serif;
-  font-weight: 700;
-  font-size: 36px;
+  font-weight: ${theme.fonts.weights.bold};
+  font-size: ${theme.fonts.size.P4};
   line-height: 45.4px;
 `;
 
@@ -66,21 +67,21 @@ const PriceButtonStyled = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: #ffa01b;
-  font-weight: 400;
+  color: ${theme.colors.primary};
   line-height: 22px;
   size: 16px;
-  font-family: "Open-Sans", sans-serif;
   margin-top: 10px;
+  font-family: "Open-Sans", sans-serif;
+  font-weight: ${theme.fonts.weights.regular};
 
   .bouton-ajouter-panier {
     width: 95px;
     height: 38px;
     border: 1px;
-    font-weight: 700;
+    border-radius: 5px;
+    font-weight: ${theme.fonts.weights.bold};
     size: 11px;
     line-height: 12px;
     align-items: center;
-    border-radius: 5px;
   }
 `;
