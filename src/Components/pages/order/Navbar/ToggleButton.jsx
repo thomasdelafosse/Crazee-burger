@@ -1,12 +1,12 @@
 import React from "react";
-import styled from "styled-components/macro";
-import { theme } from "../../theme";
+import { theme } from "../../../../theme";
+import styled from "styled-components";
 
 export default function ToggleButton({
   isChecked,
   onToggle,
-  labelIfChecked = "Fermer",
-  labelIfUnchecked = "Ouvrir",
+  labelIfChecked = "désactiver le mode admin",
+  labelIfUnchecked = "activer le mode admin",
 }) {
   return (
     <ToggleButtonStyled>
