@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import { ToastContainer, toast } from "react-toastify";
 import ProfileStyled from "./profile";
-import ToggleButtonStyled from "./ToggleButton";
 import { theme } from "../../../../theme";
+import ToggleButton from "./ToggleButton";
 
 export default function NavBarRightSide({ id }) {
   return (
     <NavBarRightSideStyled>
-      <ToggleButtonStyled />
+      <ToggleButton />
       <ToastContainer className="toaster" bodyClassName="body-toast" />
       <ProfileStyled id={id} />
     </NavBarRightSideStyled>
