@@ -1,60 +1,25 @@
 import styled from "styled-components";
 import CardStyled from "../../../reusable-ui/Card";
 import { theme } from "../../../../theme";
+import { useState } from "react";
+import { fakeMenu2 } from "../../../fakeData/fakeMenu";
+import { formatPrice } from "/src/Components/utils/maths";
 
 export default function Menu() {
+  const [menu, setMenu] = useState(fakeMenu2);
+
   return (
     <MenuStyled>
-      <CardStyled
-        image={"/images/burger-bacon-egg.png"}
-        title={"Burger Smoke BBQ"}
-        price={"priceReduce"}
-      />
-      <CardStyled
-        image={"/images/burger-vegan.png"}
-        title={"Vegan Burger"}
-        price={"priceReduce"}
-      />
-      <CardStyled
-        image={"/images/burger3.png"}
-        title={"Burger poulet"}
-        price={"priceReduce"}
-      />
-      <CardStyled
-        image={"/images/drink1.png"}
-        title={"Coke 25cl"}
-        price={"priceReduce"}
-      />
-      <CardStyled
-        image={"/images/drink2.png"}
-        title={"Pepsi 25cl"}
-        price={"priceReduce"}
-      />
-      <CardStyled
-        image={"/images/drink3.png"}
-        title={"Iced Tea 25cl"}
-        price={"priceReduce"}
-      />
-      <CardStyled
-        image={"/images/frites1.png"}
-        title={"Frites Paprika"}
-        price={"priceReduce"}
-      />
-      <CardStyled
-        image={"/images/fries3.png"}
-        title={"New York Fries"}
-        price={"priceReduce"}
-      />
-      <CardStyled
-        image={"/images/wedges1.png"}
-        title={"Crispy Potatoes"}
-        price={"priceReduce"}
-      />
-      <CardStyled
-        image={"/images/ice-cream.png"}
-        title={"Glaces artisanales"}
-        price={"priceReduce"}
-      />
+      {menu.map(({ id, title, imageSource, price }) => {
+        return (
+          <CardStyled
+            key={id}
+            title={title}
+            imageSource={imageSource}
+            leftDescription={formatPrice(price)}
+          />
+        );
+      })}
     </MenuStyled>
   );
 }
@@ -69,3 +34,14 @@ const MenuStyled = styled.div`
   column-gap: 85px;
   row-gap: 60px;
 `;
+
+{
+  /* return (
+   <menuStyled> 
+    <CardStyled
+      image={"/images/burger-bacon-egg.png"}
+      title={"Burger Smoke BBQ"}
+      price={"priceReduce"}
+    />; 
+  </menuStyled>)*/
+}
