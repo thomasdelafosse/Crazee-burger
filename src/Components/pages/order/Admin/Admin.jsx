@@ -5,13 +5,19 @@ import { MdModeEditOutline } from "react-icons/md";
 import { useState } from "react";
 
 export default function Admin() {
+  const [AddProduct, setAddProduct] = useState("");
+
+  const handleClick = (event) => {
+    console.log(event);
+  };
+
   return (
     <AdminStyled>
       <div className="all-buton">
         <button className="reduire">
           <FiChevronDown className="reduire-logo" />
         </button>
-        <button className="add-product">
+        <button className="add-product" onClick={handleClick}>
           <AiOutlinePlus className="plus-logo" />
           Ajouter un produit
         </button>
@@ -20,7 +26,7 @@ export default function Admin() {
           Modifier un produit
         </button>
       </div>
-      <div className="info-admin">INFO ADMIN PANNEL</div>
+      <div className="info-admin"></div>
     </AdminStyled>
   );
 }

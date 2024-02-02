@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import Profile from "./Profile";
-import ToggleButton from "./ToggleButton";
 import { useState } from "react";
 import ToastAdmin from "./ToastAdmin";
 import { toast } from "react-toastify";
+import ToggleButton from "../../../reusable-ui/ToggleButton";
 
 export default function NavbarRightSide({ id }) {
   const [isChecked, setisChecked] = useState(false);

@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { theme } from "../../../../theme";
 import MenuStyled from "./Menu";
 import AdminStyled from "../Admin/Admin";
-
 export default function MainPage() {
   return (
     <MainPageStyled>
