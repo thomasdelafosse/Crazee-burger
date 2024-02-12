@@ -26,13 +26,13 @@ export default function Menu() {
 
 const MenuStyled = styled.div`
   background: ${theme.colors.background_white};
-  box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
-  padding: 50px 92.5px 150px;
-
   display: grid;
-  grid-template-columns: repeat(4, 20%);
-  column-gap: 85px;
-  row-gap: 60px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-row-gap: 60px;
+  justify-items: center;
+  box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
+  padding: 50px 50px 150px;
+  overflow-y: scroll;
 `;
 
 {
