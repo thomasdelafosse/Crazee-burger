@@ -28,7 +28,7 @@ export default function NavbarRightSide({ id }) {
   return (
     <NavbarRightSideStyled>
       <ToggleButton
-        labelIfUnchecked="ACTIVER LE MODE ADMIN"
+        labelIfUnchecked="ACTIVEr LE MODE ADMIN"
         labelIfChecked="DÉSACTIVER LE MODE ADMIN"
         onChange={displayToastNotification}
       />

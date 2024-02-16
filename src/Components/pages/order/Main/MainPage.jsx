@@ -4,6 +4,7 @@ import { theme } from "../../../../theme";
 import MenuStyled from "./Menu";
 import AdminStyled from "../Admin/Admin";
 import AdminPanelContext from "../../../../context/AdminPanelContext";
+
 export default function MainPage() {
   const { isChecked, setIsChecked } = useContext(AdminPanelContext);
 
