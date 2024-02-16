@@ -6,9 +6,9 @@ import { useState } from "react";
 import { theme } from "../../../../theme";
 
 export default function Admin() {
-  const [addProductText, setAddProductText] = useState(""); // nouvelle priorité d'état pour afficher le texte
-  const [isInfoAdminVisible, setIsInfoAdminVisible] = useState(false); // afficher le pannel admin (reduce )
-  const [isAddProductClicked, setIsAddProductClicked] = useState(false); // afficher les produits "ajouter"
+  const [addProductText, setAddProductText] = useState("Ajouter un produit"); // nouvelle priorité d'état pour afficher le texte
+  const [isReduced, setIsReduced] = useState(false); // afficher le pannel admin (reduce )
+  const [isAddProductClicked, setIsAddProductClicked] = useState(true); // afficher les produits "ajouter"
   const [isModifyProductClicked, setIsModifyProductClicked] = useState(false); // afficher les produits "modifier"
 
   const handleAddProductClick = () => {
@@ -16,7 +16,7 @@ export default function Admin() {
     setAddProductText(newText); // change l'état du state avec la valeur passé
     setIsAddProductClicked(true); // sélectionne l'état du bouton "ajouter un produit"
     setIsModifyProductClicked(false); // Réinitialise l'état du bouton "Modifier un produit"
-    setIsInfoAdminVisible(true); // Ouvre le panneau admin lorsque le bouton "Ajouter un produit" est cliqué
+    setIsReduced(false); // Ouvre le panneau admin lorsque le bouton "Ajouter un produit" est cliqué
   };
 
   const handleModifyProductClick = () => {
@@ -24,24 +24,24 @@ export default function Admin() {
     setAddProductText(newText); // change l'état du state avec la valeur passé
     setIsModifyProductClicked(true); // sélectionne l'état du bouton "modifier un produit"
     setIsAddProductClicked(false); // Réinitialise l'état du bouton "Ajouter un produit"
-    setIsInfoAdminVisible(true); // Ouvre le panneau admin lorsque le bouton "Modifier un produit" est cliqué
+    setIsReduced(false); // Ouvre le panneau admin lorsque le bouton "Modifier un produit" est cliqué
   };
 
   const handleUpDown = () => {
-    setIsInfoAdminVisible(!isInfoAdminVisible);
+    setIsReduced(!isReduced);
   };
 
   return (
     <AdminStyled>
       <div className="all-buton">
         <button
-          className={`reduire ${isAddProductClicked ? "inactive" : ""}`}
+          className={`reduire ${isReduced ? "inactive" : ""}`}
           onClick={handleUpDown}
         >
-          {isInfoAdminVisible ? (
-            <FiChevronDown className="reduire-logo" />
-          ) : (
+          {isReduced ? (
             <FiChevronUp className="reduire-logo" />
+          ) : (
+            <FiChevronDown className="reduire-logo" />
           )}
         </button>
         <button
@@ -59,9 +59,7 @@ export default function Admin() {
           Modifier un produit
         </button>
       </div>
-      <div
-        className={`info-admin ${isInfoAdminVisible ? "visible" : "hidden"}`}
-      >
+      <div className={`info-admin ${isReduced ? "hidden" : "visible"}`}>
         {addProductText}
       </div>
     </AdminStyled>
@@ -69,10 +67,7 @@ export default function Admin() {
 }
 
 const AdminStyled = styled.div`
-  /* border: 1px solid red; */
-
   .all-buton {
-    /* border: 1px solid green; */
     height: 44px;
     padding-left: 71px;
   }
@@ -129,11 +124,9 @@ const AdminStyled = styled.div`
   }
 
   .info-admin {
-    /* border: 1px solid blue; */
     height: 240px;
 
     &.hidden {
-      /* Ajoutez le style pour la div cachée ici */
       display: none;
     }
   }

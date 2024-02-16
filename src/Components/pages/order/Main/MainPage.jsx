@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { theme } from "../../../../theme";
 import MenuStyled from "./Menu";
 import AdminStyled from "../Admin/Admin";
+import AdminPanelContext from "../../../../context/AdminPanelContext";
 export default function MainPage() {
+  const { isChecked, setIsChecked } = useContext(AdminPanelContext);
+
+  if (isChecked) {
+    return (
+      <MainPageStyled>
+        <MenuStyled />
+        <AdminStyled />
+      </MainPageStyled>
+    );
+  }
   return (
     <MainPageStyled>
       <MenuStyled />
-      <AdminStyled />
     </MainPageStyled>
   );
 }

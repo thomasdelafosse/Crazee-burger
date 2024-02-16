@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import Profile from "./profile";
-import { useState } from "react";
+import { useContext } from "react";
 import ToastAdmin from "./ToastAdmin";
 import { toast } from "react-toastify";
 import ToggleButton from "../../../reusable-ui/ToggleButton";
+import AdminPanelContext from "../../../../context/AdminPanelContext";
 
 export default function NavbarRightSide({ id }) {
-  const [isChecked, setisChecked] = useState(false);
+  const { isChecked, setIsChecked } = useContext(AdminPanelContext);
 
   const displayToastNotification = () => {
     if (!isChecked) {
@@ -21,7 +22,7 @@ export default function NavbarRightSide({ id }) {
         progress: undefined,
       });
     }
-    setisChecked(!isChecked);
+    setIsChecked(!isChecked);
   };
 
   return (
