@@ -3,7 +3,6 @@ import { Route, Routes } from "react-router-dom";
 import LoginPage from "./Components/pages/login/LoginPage";
 import ErrorPage from "./Components/pages/error/ErrorPage";
 import OrderPage from "./Components/pages/order/OrderPage";
-import "react-toastify/dist/ReactToastify.css";
 import AdminPanelContext from "./context/AdminPanelContext";
 import { useState } from "react";
 
