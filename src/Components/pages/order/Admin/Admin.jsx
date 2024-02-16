@@ -6,25 +6,25 @@ import { useState } from "react";
 import { theme } from "../../../../theme";
 
 export default function Admin() {
-  const [addProductText, setAddProductText] = useState("Ajouter un produit"); // nouvelle priorité d'état pour afficher le texte
-  const [isReduced, setIsReduced] = useState(false); // afficher le pannel admin (reduce )
-  const [isAddProductClicked, setIsAddProductClicked] = useState(true); // afficher les produits "ajouter"
-  const [isModifyProductClicked, setIsModifyProductClicked] = useState(false); // afficher les produits "modifier"
+  const [addText, setAddText] = useState("Ajouter un produit");
+  const [isReduced, setIsReduced] = useState(false);
+  const [addProductPanel, setAddProductPanel] = useState(true);
+  const [modifyProductPanel, setModifyProductPanel] = useState(false);
 
-  const handleAddProductClick = () => {
-    const newText = "Ajouter un produit"; // Texte qu'on souhaite afficher
-    setAddProductText(newText); // change l'état du state avec la valeur passé
-    setIsAddProductClicked(true); // sélectionne l'état du bouton "ajouter un produit"
-    setIsModifyProductClicked(false); // Réinitialise l'état du bouton "Modifier un produit"
-    setIsReduced(false); // Ouvre le panneau admin lorsque le bouton "Ajouter un produit" est cliqué
+  const handleAddProduct = () => {
+    const newText = "Ajouter un produit";
+    setAddText(newText);
+    setAddProductPanel(true);
+    setModifyProductPanel(false);
+    setIsReduced(false);
   };
 
-  const handleModifyProductClick = () => {
-    const newText = "Modifier un produit"; // Texte qu'on souhaite afficher
-    setAddProductText(newText); // change l'état du state avec la valeur passé
-    setIsModifyProductClicked(true); // sélectionne l'état du bouton "modifier un produit"
-    setIsAddProductClicked(false); // Réinitialise l'état du bouton "Ajouter un produit"
-    setIsReduced(false); // Ouvre le panneau admin lorsque le bouton "Modifier un produit" est cliqué
+  const handleModifyProduct = () => {
+    const newText = "Modifier un produit";
+    setAddText(newText);
+    setModifyProductPanel(true);
+    setAddProductPanel(false);
+    setIsReduced(false);
   };
 
   const handleUpDown = () => {
@@ -45,22 +45,22 @@ export default function Admin() {
           )}
         </button>
         <button
-          className={`add-product ${isAddProductClicked ? "active" : ""}`}
-          onClick={handleAddProductClick}
+          className={`add-product ${addProductPanel ? "active" : ""}`}
+          onClick={handleAddProduct}
         >
           <AiOutlinePlus className="plus-logo" />
           Ajouter un produit
         </button>
         <button
-          className={`modify-product ${isModifyProductClicked ? "active" : ""}`}
-          onClick={handleModifyProductClick}
+          className={`modify-product ${modifyProductPanel ? "active" : ""}`}
+          onClick={handleModifyProduct}
         >
           <MdModeEditOutline className="modifier-logo" />
           Modifier un produit
         </button>
       </div>
       <div className={`info-admin ${isReduced ? "hidden" : "visible"}`}>
-        {addProductText}
+        {addText}
       </div>
     </AdminStyled>
   );
