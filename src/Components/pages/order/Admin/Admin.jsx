@@ -27,7 +27,7 @@ export default function Admin() {
     setIsInfoAdminVisible(true); // Ouvre le panneau admin lorsque le bouton "Modifier un produit" est cliqué
   };
 
-  const handleUpDownReduction = () => {
+  const handleUpDown = () => {
     setIsInfoAdminVisible(!isInfoAdminVisible);
   };
 
@@ -36,7 +36,7 @@ export default function Admin() {
       <div className="all-buton">
         <button
           className={`reduire ${isAddProductClicked ? "inactive" : ""}`}
-          onClick={handleUpDownReduction}
+          onClick={handleUpDown}
         >
           {isInfoAdminVisible ? (
             <FiChevronDown className="reduire-logo" />

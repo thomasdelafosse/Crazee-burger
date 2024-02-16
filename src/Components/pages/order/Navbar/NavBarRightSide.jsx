@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Profile from "./Profile";
+import Profile from "./profile";
 import { useState } from "react";
 import ToastAdmin from "./ToastAdmin";
 import { toast } from "react-toastify";
