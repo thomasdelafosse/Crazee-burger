@@ -1,36 +1,19 @@
-import React, { useState } from "react";
-import { theme } from "../../../../theme";
+import { theme } from "../../theme";
 import styled from "styled-components";
-import { toast } from "react-toastify";
 
-export default function ToggleButton() {
-  const [isChecked, setIsChecked] = useState(false);
-  const labelIfChecked = "désactiver le mode admin";
-  const labelIfUnchecked = "activer le mode admin";
-
-  const onChange = (event) => {
-    setIsChecked(event.target.checked);
-    if (event.target.checked === true) {
-      toast.info("Mode admin activé", {
-        theme: "dark",
-        position: "bottom-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    }
-  };
-
+export default function ToggleButton({
+  isModeAdmin,
+  onChange,
+  labelIfChecked = "Fermer",
+  labelIfUnchecked = "Ouvrir",
+}) {
   return (
     <ToggleButtonStyled>
       <input
         type="checkbox"
         className="toggle"
         id="rounded"
-        checked={isChecked}
+        checked={isModeAdmin}
         onChange={onChange}
       />
       <label

@@ -1,39 +1,45 @@
 import styled from "styled-components";
-import { ToastContainer, toast } from "react-toastify";
-import ProfileStyled from "./profile";
-import { theme } from "../../../../theme";
-import ToggleButton from "./ToggleButton";
+import Profile from "./profile";
+import { useContext } from "react";
+import ToastAdmin from "./ToastAdmin";
+import { toast } from "react-toastify";
+import ToggleButton from "../../../reusable-ui/ToggleButton";
+import OrderContext from "../../../../context/OrderContext";
 
-export default function NavBarRightSide({ id }) {
+export default function NavbarRightSide({ id }) {
+  const { isModeAdmin, setIsModeAdmin } = useContext(OrderContext);
+
+  const displayToastNotification = () => {
+    if (!isModeAdmin) {
+      toast.info("Mode admin activé", {
+        theme: "dark",
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+    setIsModeAdmin(!isModeAdmin);
+  };
+
   return (
-    <NavBarRightSideStyled>
-      <ToggleButton />
-      <ToastContainer className="toaster" bodyClassName="body-toast" />
-      <ProfileStyled id={id} />
-    </NavBarRightSideStyled>
+    <NavbarRightSideStyled>
+      <ToggleButton
+        labelIfUnchecked="ACTIVER LE MODE ADMIN"
+        labelIfChecked="DÉSACTIVER LE MODE ADMIN"
+        onChange={displayToastNotification}
+      />
+      <Profile id={id} />
+      <ToastAdmin />
+    </NavbarRightSideStyled>
   );
 }
 
-const NavBarRightSideStyled = styled.div`
+const NavbarRightSideStyled = styled.div`
   display: flex;
   align-items: center;
   padding-right: 50px;
-
-  .toaster {
-    max-width: 300px;
-  }
-
-  .Toastify__toast.Toastify__toast-theme--dark.Toastify__toast--info {
-    background: ${theme.colors.background_dark};
-  }
-
-  .body-toast {
-    .Toastify__toast-icon.Toastify--animate-icon.Toastify__zoom-enter {
-      margin-right: 20px;
-      margin-left: 5px;
-    }
-    div {
-      line-height: 1.3em;
-    }
-  }
 `;
