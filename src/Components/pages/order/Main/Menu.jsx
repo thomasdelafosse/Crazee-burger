@@ -4,9 +4,10 @@ import { theme } from "../../../../theme";
 import { useState } from "react";
 import { formatPrice } from "/src/Components/utils/maths";
 import { fakeMenu } from "../../../fakeData/fakeMenu";
+import { fakeMenu } from "../../../fakeData/fakeMenu";
 
 export default function Menu() {
-  const [menu, setMenu] = useState(fakeMenu);
+  const [menu, setMenu] = useState(fakeMenu.MEDIUM);
 
   return (
     <MenuStyled>
