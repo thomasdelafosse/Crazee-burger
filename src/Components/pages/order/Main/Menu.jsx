@@ -2,15 +2,15 @@ import styled from "styled-components";
 import CardStyled from "../../../reusable-ui/Card";
 import { theme } from "../../../../theme";
 import { useState } from "react";
-import { fakeMenu2 } from "../../../fakeData/fakeMenu";
 import { formatPrice } from "/src/Components/utils/maths";
+import { fakeMenu } from "../../../fakeData/fakeMenu";
 
 export default function Menu() {
-  const [menu, setMenu] = useState(fakeMenu2);
+  const [menu, setMenu] = useState(fakeMenu);
 
   return (
     <MenuStyled>
-      {menu.map(({ id, title, imageSource, price }) => {
+      {menu.LARGE.map(({ id, title, imageSource, price }) => {
         return (
           <CardStyled
             key={id}
