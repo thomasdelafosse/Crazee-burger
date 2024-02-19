@@ -2,7 +2,7 @@ import { theme } from "../../theme";
 import styled from "styled-components";
 
 export default function ToggleButton({
-  isChecked,
+  isModeAdmin,
   onChange,
   labelIfChecked = "Fermer",
   labelIfUnchecked = "Ouvrir",
@@ -13,7 +13,7 @@ export default function ToggleButton({
         type="checkbox"
         className="toggle"
         id="rounded"
-        checked={isChecked}
+        checked={isModeAdmin}
         onChange={onChange}
       />
       <label

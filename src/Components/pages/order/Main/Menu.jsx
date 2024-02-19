@@ -34,14 +34,3 @@ const MenuStyled = styled.div`
   padding: 50px 50px 150px;
   overflow-y: scroll;
 `;
-
-{
-  /* return (
-   <menuStyled> 
-    <CardStyled
-      image={"/images/burger-bacon-egg.png"}
-      title={"Burger Smoke BBQ"}
-      price={"priceReduce"}
-    />; 
-  </menuStyled>)*/
-}

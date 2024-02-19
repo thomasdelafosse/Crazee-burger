@@ -4,13 +4,13 @@ import { useContext } from "react";
 import ToastAdmin from "./ToastAdmin";
 import { toast } from "react-toastify";
 import ToggleButton from "../../../reusable-ui/ToggleButton";
-import AdminPanelContext from "../../../../context/AdminPanelContext";
+import OrderContext from "../../../../context/OrderContext";
 
 export default function NavbarRightSide({ id }) {
-  const { isChecked, setIsChecked } = useContext(AdminPanelContext);
+  const { isModeAdmin, setIsModeAdmin } = useContext(OrderContext);
 
   const displayToastNotification = () => {
-    if (!isChecked) {
+    if (!isModeAdmin) {
       toast.info("Mode admin activé", {
         theme: "dark",
         position: "bottom-right",
@@ -22,13 +22,13 @@ export default function NavbarRightSide({ id }) {
         progress: undefined,
       });
     }
-    setIsChecked(!isChecked);
+    setIsModeAdmin(!isModeAdmin);
   };
 
   return (
     <NavbarRightSideStyled>
       <ToggleButton
-        labelIfUnchecked="ACTIVEr LE MODE ADMIN"
+        labelIfUnchecked="ACTIVER LE MODE ADMIN"
         labelIfChecked="DÉSACTIVER LE MODE ADMIN"
         onChange={displayToastNotification}
       />
