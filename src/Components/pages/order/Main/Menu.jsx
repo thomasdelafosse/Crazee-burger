@@ -8,8 +8,22 @@ import { fakeMenu } from "../../../fakeData/fakeMenu";
 export default function Menu() {
   const [menu, setMenu] = useState(fakeMenu.MEDIUM);
 
+  const newProduct = {
+    id: new Date().getTime(),
+    title: "nouveau produit",
+    imageSource: "/images/ice-cream.png",
+    price: 5.65,
+  };
+
+  const handleAddProduct = () => {
+    const menuCopy = [...menu];
+    const menuCopyUpdated = [newProduct, ...menuCopy];
+    setMenu(menuCopyUpdated);
+  };
+
   return (
     <MenuStyled>
+      <button onClick={handleAddProduct}>Ajouter Produit</button>
       {menu.map(({ id, title, imageSource, price }) => {
         return (
           <CardStyled

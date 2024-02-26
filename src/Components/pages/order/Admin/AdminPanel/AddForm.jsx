@@ -4,8 +4,15 @@ export default function AddForm() {
   return (
     <AddFormStyled>
       <div className="image-preview">Aucune image</div>
-      <div className="input-fields">input fields</div>
-      <div className="submit-button">SUBMIT BUTTON</div>
+      <div className="input-fields">
+        <input type="text" placeholder="Nom du produit (ex: Super Burger)" />
+        <input type="text" placeholder="Lien URl Image" />
+        {/* Lien URL d'une image (ex: https://la-photo-de-mon-produit.png) */}
+        <input type="text" placeholder="Prix" />
+      </div>
+      <button className="submit-button">
+        Ajouter un nouveau produit au menu
+      </button>
     </AddFormStyled>
   );
 }
@@ -25,12 +32,13 @@ const AddFormStyled = styled.form`
   }
 
   .input-fields {
-    background: green;
     grid-area: 1 / 2 / 4 / 4;
+    display: grid;
   }
 
   .submit-button {
-    background: blueviolet;
+    background: green;
     grid-area: 4 / 2 / 5 / 5;
+    width: 60%; //expected 50% : before refacto CSS keep 60%
   }
 `;
