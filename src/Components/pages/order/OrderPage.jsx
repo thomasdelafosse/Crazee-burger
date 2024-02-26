@@ -5,12 +5,14 @@ import { theme } from "../../../theme";
 import NavBar from "./Navbar/NavBar";
 import OrderContext from "../../../context/OrderContext";
 import Main from "./Main/Main";
+import { fakeMenu } from "../../fakeData/fakeMenu.jsx";
 
 export default function OrderPage() {
   const { inputValue } = useParams();
   const [isModeAdmin, setIsModeAdmin] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
+  const [menu, setMenu] = useState(fakeMenu.MEDIUM);
 
   const orderContextValue = {
     isModeAdmin,
@@ -19,6 +21,8 @@ export default function OrderPage() {
     setIsCollapsed,
     currentTabSelected,
     setCurrentTabSelected,
+    menu,
+    setMenu,
   };
 
   return (

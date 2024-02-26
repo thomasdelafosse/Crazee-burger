@@ -1,8 +1,30 @@
+import { useContext } from "react";
 import styled from "styled-components";
+import OrderContext from "../../../../../context/OrderContext";
 
 export default function AddForm() {
+  // const { handleAdd } = useContext(OrderContext);
+  const { menu, setMenu } = useContext(OrderContext);
+
+  const newProduct = {
+    id: new Date().getTime(),
+    title: "nouveau produit",
+    imageSource: "/images/ice-cream.png",
+    price: 5.65,
+  };
+  const handleAdd = () => {
+    const menuCopy = [...menu];
+    const menuCopyUpdated = [newProduct, ...menuCopy];
+    setMenu(menuCopyUpdated);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    handleAdd();
+  };
+
   return (
-    <AddFormStyled>
+    <AddFormStyled onSubmit={handleSubmit}>
       <div className="image-preview">Aucune image</div>
       <div className="input-fields">
         <input type="text" placeholder="Nom du produit (ex: Super Burger)" />

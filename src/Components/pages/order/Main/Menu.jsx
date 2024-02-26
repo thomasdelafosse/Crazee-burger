@@ -1,29 +1,15 @@
 import styled from "styled-components";
 import CardStyled from "../../../reusable-ui/Card";
 import { theme } from "../../../../theme";
-import { useState } from "react";
+import { useContext } from "react";
 import { formatPrice } from "/src/Components/utils/maths";
-import { fakeMenu } from "../../../fakeData/fakeMenu";
+import OrderContext from "../../../../context/OrderContext";
 
 export default function Menu() {
-  const [menu, setMenu] = useState(fakeMenu.MEDIUM);
-
-  const newProduct = {
-    id: new Date().getTime(),
-    title: "nouveau produit",
-    imageSource: "/images/ice-cream.png",
-    price: 5.65,
-  };
-
-  const handleAddProduct = () => {
-    const menuCopy = [...menu];
-    const menuCopyUpdated = [newProduct, ...menuCopy];
-    setMenu(menuCopyUpdated);
-  };
+  const { menu } = useContext(OrderContext);
 
   return (
     <MenuStyled>
-      <button onClick={handleAddProduct}>Ajouter Produit</button>
       {menu.map(({ id, title, imageSource, price }) => {
         return (
           <CardStyled
