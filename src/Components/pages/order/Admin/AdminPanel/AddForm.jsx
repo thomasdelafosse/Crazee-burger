@@ -3,8 +3,7 @@ import styled from "styled-components";
 import OrderContext from "../../../../../context/OrderContext";
 
 export default function AddForm() {
-  // const { handleAdd } = useContext(OrderContext);
-  const { menu, setMenu } = useContext(OrderContext);
+  const { handleAdd } = useContext(OrderContext);
 
   const newProduct = {
     // id: new Date().getTime(),
@@ -14,15 +13,9 @@ export default function AddForm() {
     price: 5.65,
   };
 
-  const handleAdd = () => {
-    const menuCopy = [...menu];
-    const menuCopyUpdated = [newProduct, ...menuCopy];
-    setMenu(menuCopyUpdated);
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    handleAdd();
+    handleAdd(newProduct);
   };
 
   return (
