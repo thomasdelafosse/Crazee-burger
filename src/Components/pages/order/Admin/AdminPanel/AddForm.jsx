@@ -7,11 +7,13 @@ export default function AddForm() {
   const { menu, setMenu } = useContext(OrderContext);
 
   const newProduct = {
-    id: new Date().getTime(),
+    // id: new Date().getTime(),
+    id: crypto.randomUUID(),
     title: "nouveau produit",
     imageSource: "/images/ice-cream.png",
     price: 5.65,
   };
+
   const handleAdd = () => {
     const menuCopy = [...menu];
     const menuCopyUpdated = [newProduct, ...menuCopy];
