@@ -13,13 +13,12 @@ export default function AddForm() {
   const { handleAdd } = useContext(OrderContext);
   const [newProduct, setnewProduct] = useState(emptyProduct);
 
-  const newProductToAdd = {
-    ...newProduct,
-    id: crypto.randomUUID(), // id: new Date().getTime(),
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
+    const newProductToAdd = {
+      ...newProduct,
+      id: crypto.randomUUID(), // id: new Date().getTime(),
+    };
     handleAdd(newProductToAdd);
   };
 
