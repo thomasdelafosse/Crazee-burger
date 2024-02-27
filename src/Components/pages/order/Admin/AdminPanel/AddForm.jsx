@@ -1,31 +1,59 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import styled from "styled-components";
 import OrderContext from "../../../../../context/OrderContext";
 
+const emptyProduct = {
+  id: "",
+  title: "",
+  imageSource: "",
+  price: 0,
+};
+
 export default function AddForm() {
   const { handleAdd } = useContext(OrderContext);
+  const [newProduct, setnewProduct] = useState(emptyProduct);
 
-  const newProduct = {
-    // id: new Date().getTime(),
-    id: crypto.randomUUID(),
-    title: "nouveau produit",
-    imageSource: "/images/ice-cream.png",
-    price: 5.65,
+  const newProductToAdd = {
+    ...newProduct,
+    id: crypto.randomUUID(), // id: new Date().getTime(),
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    handleAdd(newProduct);
+    handleAdd(newProductToAdd);
+  };
+
+  const handleChange = (event) => {
+    const newValue = event.target.value;
+    const name = event.target.name;
+    setnewProduct({ ...newProduct, [name]: newValue });
   };
 
   return (
     <AddFormStyled onSubmit={handleSubmit}>
       <div className="image-preview">Aucune image</div>
       <div className="input-fields">
-        <input type="text" placeholder="Nom du produit (ex: Super Burger)" />
-        <input type="text" placeholder="Lien URl Image" />
-        {/* Lien URL d'une image (ex: https://la-photo-de-mon-produit.png) */}
-        <input type="text" placeholder="Prix" />
+        <input
+          name="title"
+          value={newProduct.title}
+          type="text"
+          placeholder="Nom du produit (ex: Super Burger)"
+          onChange={handleChange}
+        />
+        <input
+          name="imageSource"
+          value={newProduct.imageSource}
+          type="text"
+          placeholder="Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
+          onChange={handleChange}
+        />
+        <input
+          name="price"
+          value={newProduct.price ? newProduct.price : ""}
+          type="text"
+          placeholder="Prix"
+          onChange={handleChange}
+        />
       </div>
       <button className="submit-button">
         Ajouter un nouveau produit au menu
