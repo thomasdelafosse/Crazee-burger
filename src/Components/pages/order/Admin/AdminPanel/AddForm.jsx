@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import styled from "styled-components";
 import OrderContext from "../../../../../context/OrderContext";
 
-const emptyProduct = {
+const EMPTY_PRODUCT = {
   id: "",
   title: "",
   imageSource: "",
@@ -11,7 +11,7 @@ const emptyProduct = {
 
 export default function AddForm() {
   const { handleAdd } = useContext(OrderContext);
-  const [newProduct, setnewProduct] = useState(emptyProduct);
+  const [newProduct, setnewProduct] = useState(EMPTY_PRODUCT);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -73,6 +73,9 @@ const AddFormStyled = styled.form`
   .image-preview {
     background: red;
     grid-area: 1 / -3 / 4 / 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .input-fields {
