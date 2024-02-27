@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import styled from "styled-components";
 import OrderContext from "../../../../../context/OrderContext";
 import { theme } from "../../../../../theme/index.jsx";
+import { FiCheck } from "react-icons/fi";
 
 const EMPTY_PRODUCT = {
   id: "",
@@ -13,21 +14,30 @@ const EMPTY_PRODUCT = {
 export default function AddForm() {
   const { handleAdd } = useContext(OrderContext);
   const [newProduct, setnewProduct] = useState(EMPTY_PRODUCT);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const newProductToAdd = {
       ...newProduct,
-      id: crypto.randomUUID(), // id: new Date().getTime(),
+      id: crypto.randomUUID(),
     };
     handleAdd(newProductToAdd);
     setnewProduct(EMPTY_PRODUCT);
+    displaySuccessMessage();
   };
 
   const handleChange = (event) => {
     const newValue = event.target.value;
     const name = event.target.name;
     setnewProduct({ ...newProduct, [name]: newValue });
+  };
+
+  const displaySuccessMessage = () => {
+    setIsSubmitted(true);
+    setTimeout(() => {
+      setIsSubmitted(false);
+    }, 2000);
   };
 
   return (
@@ -62,9 +72,18 @@ export default function AddForm() {
           onChange={handleChange}
         />
       </div>
-      <button className="submit-button">
-        Ajouter un nouveau produit au menu
-      </button>
+      <div className="submit">
+        <button className="submit-button">
+          Ajouter un nouveau produit au menu
+        </button>
+
+        {isSubmitted && (
+          <span className="message">
+            <FiCheck className="icon" />
+            Ajouté avec succès !
+          </span>
+        )}
+      </div>
     </AddFormStyled>
   );
 }
@@ -79,7 +98,6 @@ const AddFormStyled = styled.form`
   grid-row-gap: 8px;
 
   .image-preview {
-    /* background: red; */
     grid-area: 1 / -3 / 4 / 2;
     /* display: flex;
     justify-content: center;
@@ -95,7 +113,6 @@ const AddFormStyled = styled.form`
   } */
 
   .empty-image {
-    /* background-color: green; */
     height: 100%;
     width: 100%;
     display: flex;
@@ -112,9 +129,32 @@ const AddFormStyled = styled.form`
     display: grid;
   }
 
+  .submit {
+    grid-area: 4 / -2 / -1 / -1;
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: 3px;
+  }
   .submit-button {
-    background: green;
-    grid-area: 4 / 2 / 5 / 5;
-    width: 60%; //expected 50% : before refacto CSS keep 60%
+    background-color: ${theme.colors.green};
+    color: ${theme.colors.white};
+    height: 100%;
+  }
+
+  .icon {
+    color: ${theme.colors.success};
+    margin-left: 10px;
+    width: 1em;
+    height: 1em;
+    border: 1px solid ${theme.colors.success};
+    border-radius: 50%;
+    vertical-align: middle;
+  }
+
+  .message {
+    margin-left: 5px;
+    font-size: ${theme.fonts.size.SM};
+    color: ${theme.colors.success};
   }
 `;
