@@ -78,10 +78,10 @@ export default function AddForm() {
         </button>
 
         {isSubmitted && (
-          <span className="message">
+          <div className="submit-message">
             <FiCheck className="icon" />
             Ajouté avec succès !
-          </span>
+          </div>
         )}
       </div>
     </AddFormStyled>
@@ -152,7 +152,7 @@ const AddFormStyled = styled.form`
     vertical-align: middle;
   }
 
-  .message {
+  .submit-message {
     margin-left: 5px;
     font-size: ${theme.fonts.size.SM};
     color: ${theme.colors.success};
