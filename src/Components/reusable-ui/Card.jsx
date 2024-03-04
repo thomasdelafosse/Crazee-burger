@@ -16,7 +16,7 @@ export default function Card({
         <button
           className="delete-button"
           aria-label="delete-button"
-          // onClick={onDelete}
+          onClick={onDelete}
         >
           <TiDelete className="icon" />
         </button>
