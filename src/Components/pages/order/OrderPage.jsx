@@ -26,8 +26,11 @@ export default function OrderPage() {
     const menuCopyUpdated = menuCopy.filter(
       (product) => product.id !== idProduct,
     );
-
     setMenu(menuCopyUpdated);
+  };
+
+  const resetMenu = () => {
+    setMenu(fakeMenu.MEDIUM);
   };
 
   const orderContextValue = {
@@ -40,6 +43,7 @@ export default function OrderPage() {
     menu,
     handleAdd,
     handleDelete,
+    resetMenu,
   };
 
   return (
