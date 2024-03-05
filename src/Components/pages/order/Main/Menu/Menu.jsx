@@ -1,14 +1,22 @@
 import styled from "styled-components";
-import CardStyled from "../../../reusable-ui/Card";
-import { theme } from "../../../../theme";
+import CardStyled from "../../../../reusable-ui/Card";
+import { theme } from "../../../../../theme";
 import { useContext } from "react";
 import { formatPrice } from "/src/Components/utils/maths";
-import OrderContext from "../../../../context/OrderContext";
+import OrderContext from "../../../../../context/OrderContext";
+import EmptyMenuClient from "./EmptyMenuClient";
+import EmptyMenuAdmin from "./EmptyMenuAdmin";
 
 const DEFAULT_IMAGE = "/images/coming-soon.png";
 
 export default function Menu() {
-  const { menu, isModeAdmin, handleDelete } = useContext(OrderContext);
+  const { menu, isModeAdmin, handleDelete, resetMenu } =
+    useContext(OrderContext);
+
+  if (menu.length === 0) {
+    if (!isModeAdmin) return <EmptyMenuClient />;
+    return <EmptyMenuAdmin onReset={resetMenu} />;
+  }
 
   return (
     <MenuStyled>
