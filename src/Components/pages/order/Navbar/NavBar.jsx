@@ -5,13 +5,13 @@ import Logo from "../../../reusable-ui/Logo";
 import NavBarRightSide from "./NavBarRightSide";
 import { theme } from "../../../../theme";
 
-export default function NavBar({ inputValue }) {
+export default function NavBar({ username }) {
   return (
     <NavBarStyled>
-      <Link to={`/order/${inputValue}`}>
+      <Link to={`/order/${username}`}>
         <Logo />
       </Link>
-      <NavBarRightSide id={inputValue} />
+      <NavBarRightSide id={username} />
     </NavBarStyled>
   );
 }

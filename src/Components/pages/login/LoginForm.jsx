@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { BsPersonCircle } from "react-icons/bs";
@@ -6,19 +6,21 @@ import { IoChevronForward } from "react-icons/io5";
 import TextInput from "../../reusable-ui/TextInput";
 import PrimaryButton from "../../reusable-ui/PrimaryButton";
 import { theme } from "../../../theme";
+import UserContext from "../../../context/UserContext.jsx";
 
 export default function LoginForm() {
-  const [InputValue, setInputValue] = useState("");
+  // const [InputValue, setInputValue] = useState("");
+  const { username, setUsername } = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    navigate(`order/${InputValue}`);
-    setInputValue("");
+    navigate(`order/${username}`);
+    setUsername("");
   };
 
   const handleChange = (event) => {
-    setInputValue(event.target.value);
+    setUsername(event.target.value);
   };
 
   return (
@@ -30,7 +32,7 @@ export default function LoginForm() {
       </div>
       <div>
         <TextInput
-          value={InputValue}
+          value={username}
           onChange={handleChange}
           type="text"
           placeholder="Entrez votre prénom"

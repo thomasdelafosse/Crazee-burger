@@ -8,7 +8,7 @@ import Main from "./Main/Main";
 import { fakeMenu } from "../../fakeData/fakeMenu.jsx";
 
 export default function OrderPage() {
-  const { inputValue } = useParams();
+  const { username } = useParams();
   const [isModeAdmin, setIsModeAdmin] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
@@ -50,7 +50,7 @@ export default function OrderPage() {
     <OrderContext.Provider value={orderContextValue}>
       <OrderPageStyled>
         <div className="container">
-          <NavBar id={inputValue} inputValue={inputValue} />
+          <NavBar id={username} username={username} />
           <Main />
         </div>
       </OrderPageStyled>
