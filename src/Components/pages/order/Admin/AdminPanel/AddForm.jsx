@@ -2,7 +2,8 @@ import { useContext, useState } from "react";
 import styled from "styled-components";
 import OrderContext from "../../../../../context/OrderContext";
 import { theme } from "../../../../../theme/index.jsx";
-import { FiCheck } from "react-icons/fi";
+import ImagePreview from "./ImagePreview";
+import SubmitMessage from "./SubmitMessage.jsx";
 
 const EMPTY_PRODUCT = {
   id: "",
@@ -42,13 +43,10 @@ export default function AddForm() {
 
   return (
     <AddFormStyled onSubmit={handleSubmit}>
-      <div className="image-preview">
-        {newProduct.imageSource ? (
-          <img src={newProduct.imageSource} alt={newProduct.title} />
-        ) : (
-          <div className="empty-image">Aucune Image</div>
-        )}
-      </div>
+      <ImagePreview
+        imageSource={newProduct.imageSource}
+        title={newProduct.title}
+      />
       <div className="input-fields">
         <input
           name="title"
@@ -76,13 +74,7 @@ export default function AddForm() {
         <button className="submit-button">
           Ajouter un nouveau produit au menu
         </button>
-
-        {isSubmitted && (
-          <div className="submit-message">
-            <FiCheck className="icon" />
-            Ajouté avec succès !
-          </div>
-        )}
+        {isSubmitted && <SubmitMessage />}
       </div>
     </AddFormStyled>
   );
@@ -96,33 +88,6 @@ const AddFormStyled = styled.form`
   width: 70%;
   grid-column-gap: 20px;
   grid-row-gap: 8px;
-
-  .image-preview {
-    grid-area: 1 / -3 / 4 / 2;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-  }
-
-  /* .img {
-    border: 10px solid red;
-    width: 100px;
-    height: 100px;
-    object-fit: contain;
-    object-position: center;
-  } */
-
-  .empty-image {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid ${theme.colors.greyLight};
-    line-height: 1.5;
-    color: ${theme.colors.greySemiDark};
-    border-radius: ${theme.borderRadius.round};
-  }
 
   .input-fields {
     grid-area: 1 / 2 / 4 / 4;
@@ -140,21 +105,5 @@ const AddFormStyled = styled.form`
     background-color: ${theme.colors.green};
     color: ${theme.colors.white};
     height: 100%;
-  }
-
-  .icon {
-    color: ${theme.colors.success};
-    margin-left: 10px;
-    width: 1em;
-    height: 1em;
-    border: 1px solid ${theme.colors.success};
-    border-radius: 50%;
-    vertical-align: middle;
-  }
-
-  .submit-message {
-    margin-left: 5px;
-    font-size: ${theme.fonts.size.SM};
-    color: ${theme.colors.success};
   }
 `;
