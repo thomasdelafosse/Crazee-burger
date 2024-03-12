@@ -15,8 +15,8 @@ export default function AdminTabs() {
   } = useContext(OrderContext);
 
   const selectTab = (tabSelected) => {
-    setIsCollapsed(false); // ouvre moi le panel dans tous les cas
-    setCurrentTabSelected(tabSelected); // réactualise l'onglet sélectionné
+    setIsCollapsed(false);
+    setCurrentTabSelected(tabSelected);
   };
 
   const tabs = tabsConfig;
@@ -46,9 +46,8 @@ const AdminTabsStyled = styled.div`
 
   .is-active {
     background: ${theme.colors.background_dark};
-    color: ${theme.colors.white};
     border-color: ${theme.colors.background_dark};
-    border-bottom: 2px;
+    color: ${theme.colors.white};
   }
 
   button {

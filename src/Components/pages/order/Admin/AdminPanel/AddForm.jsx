@@ -16,11 +16,9 @@ export const EMPTY_PRODUCT = {
 };
 
 export default function AddForm() {
-  // state
   const { handleAdd, newProduct, setNewProduct } = useContext(OrderContext);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // comportements
   const handleSubmit = (event) => {
     event.preventDefault();
     const newProductToAdd = {
@@ -48,7 +46,6 @@ export default function AddForm() {
 
   const inputTexts = getInputTextsConfig(newProduct);
 
-  // affichage
   return (
     <AddFormStyled onSubmit={handleSubmit}>
       <ImagePreview
@@ -78,7 +75,6 @@ export default function AddForm() {
 }
 
 const AddFormStyled = styled.form`
-  /* border: 2px solid black; */
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: repeat(4, 1fr);
@@ -88,7 +84,6 @@ const AddFormStyled = styled.form`
   grid-row-gap: 8px;
 
   .input-fields {
-    /* background: blue; */
     grid-area: 1 / 2 / -2 / 3;
 
     display: grid;
@@ -96,7 +91,6 @@ const AddFormStyled = styled.form`
   }
 
   .submit {
-    /* background: green; */
     grid-area: 4 / -2 / -1 / -1;
     display: flex;
     align-items: center;
@@ -104,7 +98,6 @@ const AddFormStyled = styled.form`
     top: 3px;
 
     .submit-button {
-      /* width: 50%; */
       height: 100%;
     }
   }
