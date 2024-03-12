@@ -6,6 +6,7 @@ import NavBar from "./Navbar/NavBar";
 import OrderContext from "../../../context/OrderContext";
 import Main from "./Main/Main";
 import { fakeMenu } from "../../fakeData/fakeMenu.jsx";
+import { EMPTY_PRODUCT } from "./Admin/AdminPanel/AddForm.jsx";
 
 export default function OrderPage() {
   const { username } = useParams();
@@ -13,6 +14,7 @@ export default function OrderPage() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
   const [menu, setMenu] = useState(fakeMenu.MEDIUM);
+  const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
 
   const handleAdd = (newProduct) => {
     const menuCopy = [...menu];
@@ -44,6 +46,8 @@ export default function OrderPage() {
     handleAdd,
     handleDelete,
     resetMenu,
+    newProduct,
+    setNewProduct,
   };
 
   return (
