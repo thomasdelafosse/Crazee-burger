@@ -6,12 +6,14 @@ import { formatPrice } from "/src/Components/utils/maths";
 import OrderContext from "../../../../../context/OrderContext";
 import EmptyMenuClient from "./EmptyMenuClient";
 import EmptyMenuAdmin from "./EmptyMenuAdmin";
+import UserContext from "../../../../../context/UserContext";
 
 const DEFAULT_IMAGE = "/images/coming-soon.png";
 
 export default function Menu() {
   const { menu, isModeAdmin, handleDelete, resetMenu } =
     useContext(OrderContext);
+  const { username } = useContext(UserContext);
 
   if (menu.length === 0) {
     if (!isModeAdmin) return <EmptyMenuClient />;

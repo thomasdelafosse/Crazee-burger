@@ -9,7 +9,7 @@ import UserContext from "./context/UserContext";
 function App() {
   const [username, setUsername] = useState("");
 
-  const userContextValue = { username, setUsername };
+  const userContextValue = { username: "fefe", setUsername };
 
   return (
     <UserContext.Provider value={userContextValue}>

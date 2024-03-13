@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { theme } from "../../../theme";
@@ -7,14 +7,16 @@ import OrderContext from "../../../context/OrderContext";
 import Main from "./Main/Main";
 import { fakeMenu } from "../../fakeData/fakeMenu.jsx";
 import { EMPTY_PRODUCT } from "./Admin/AdminPanel/AddForm.jsx";
+import UserContext from "../../../context/UserContext.jsx";
 
 export default function OrderPage() {
-  const { username } = useParams();
+  // const { username } = useParams();
   const [isModeAdmin, setIsModeAdmin] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
   const [menu, setMenu] = useState(fakeMenu.MEDIUM);
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
+  const { username } = useContext(UserContext);
 
   const handleAdd = (newProduct) => {
     const menuCopy = [...menu];
