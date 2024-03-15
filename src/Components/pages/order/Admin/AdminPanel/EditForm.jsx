@@ -1,8 +1,15 @@
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
 import { HiCursorClick } from "react-icons/hi";
+import { useRef } from "react";
 
 export default function EditForm() {
+  // const inputBaliseRef = useRef();
+
+  // const handleClick = (event) => {
+  //   alert("handleClick");
+  // };
+
   return (
     <div>
       <EditFormStyled>

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import CardStyled from "../../../../reusable-ui/Card";
 import { theme } from "../../../../../theme";
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import { formatPrice } from "/src/Components/utils/maths";
 import OrderContext from "../../../../../context/OrderContext";
 import EmptyMenuClient from "./EmptyMenuClient";
@@ -14,6 +14,13 @@ export default function Menu() {
   const { menu, isModeAdmin, handleDelete, resetMenu } =
     useContext(OrderContext);
   const { username } = useContext(UserContext);
+  const inputBaliseRef = useRef();
+
+  const handleClick1 = () => {
+    alert("handleClick1");
+    console.log("inputBaliseRef.current :", inputBaliseRef.current);
+    inputBaliseRef.current.focus();
+  };
 
   if (menu.length === 0) {
     if (!isModeAdmin) return <EmptyMenuClient />;
@@ -21,20 +28,24 @@ export default function Menu() {
   }
 
   return (
-    <MenuStyled>
-      {menu.map(({ id, title, imageSource, price }) => {
-        return (
-          <CardStyled
-            key={id}
-            title={title}
-            imageSource={imageSource ? imageSource : DEFAULT_IMAGE}
-            leftDescription={formatPrice(price)}
-            hasDeleteButton={isModeAdmin}
-            onDelete={() => handleDelete(id)}
-          />
-        );
-      })}
-    </MenuStyled>
+    <div>
+      <MenuStyled>
+        {menu.map(({ id, title, imageSource, price }) => {
+          return (
+            <CardStyled
+              key={id}
+              title={title}
+              imageSource={imageSource ? imageSource : DEFAULT_IMAGE}
+              leftDescription={formatPrice(price)}
+              hasDeleteButton={isModeAdmin}
+              onDelete={() => handleDelete(id)}
+            />
+          );
+        })}
+        <button onClick={handleClick1}>TEST</button>
+        <input ref={inputBaliseRef} type="text" placeholder="inputTest"></input>
+      </MenuStyled>
+    </div>
   );
 }
 
