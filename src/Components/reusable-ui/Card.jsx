@@ -49,6 +49,14 @@ const CardStyled = styled.div`
   border-radius: ${theme.borderRadius.extraRound};
   position: relative;
 
+  &:hover:not(:disabled) {
+    color: #ff9f1b;
+    border: 1px solid #ff9f1b;
+    /* width: Hug (252px);
+    height: Hug (346.5px); */
+    /* transition: all 200ms ease-out; */
+  }
+
   .delete-button {
     position: absolute;
     top: 15px;
