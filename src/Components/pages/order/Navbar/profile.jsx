@@ -2,13 +2,17 @@ import { BsPersonCircle } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { theme } from "../../../../theme";
+import { useContext } from "react";
+import UserContext from "../../../../context/UserContext";
 
-export default function Profile({ id }) {
+export default function Profile() {
+  const { username } = useContext(UserContext);
+
   return (
     <ProfileStyled>
       <div className="info">
         <p>
-          Hey, <b>{id}</b>
+          Hey, <b>{username}</b>
         </p>
         <Link to="/">
           <div className="description">

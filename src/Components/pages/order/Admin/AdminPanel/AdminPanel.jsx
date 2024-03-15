@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import { tabsConfig, getTabSelected } from "./tabsConfig";
-import OrderContext from "../../../../context/OrderContext";
-import { theme } from "../../../../theme";
+import { tabsConfig, getTabSelected } from "../tabsConfig";
+import OrderContext from "../../../../../context/OrderContext";
+import { theme } from "../../../../../theme";
 
 export default function AdminPanel() {
   const { currentTabSelected } = useContext(OrderContext);
@@ -10,7 +10,9 @@ export default function AdminPanel() {
   const tabs = tabsConfig;
   const tabSelected = getTabSelected(tabs, currentTabSelected);
 
-  return <AdminPanelStyled>{tabSelected.label}</AdminPanelStyled>;
+  return (
+    <AdminPanelStyled>{tabSelected && tabSelected.Content}</AdminPanelStyled>
+  );
 }
 
 const AdminPanelStyled = styled.div`
@@ -20,4 +22,7 @@ const AdminPanelStyled = styled.div`
   background: ${theme.colors.white};
   border-top: 1px solid ${theme.colors.greyLight};
   box-shadow: ${theme.shadows.subtle};
+
+  box-sizing: border-box;
+  padding: 30px 5%;
 `;

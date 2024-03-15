@@ -1,16 +1,41 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { theme } from "../../../theme";
 import NavBar from "./Navbar/NavBar";
 import OrderContext from "../../../context/OrderContext";
 import Main from "./Main/Main";
+import { fakeMenu } from "../../fakeData/fakeMenu.jsx";
+import { EMPTY_PRODUCT } from "./Admin/AdminPanel/AddForm.jsx";
+import UserContext from "../../../context/UserContext.jsx";
 
 export default function OrderPage() {
-  const { inputValue } = useParams();
+  // const { username } = useParams();
   const [isModeAdmin, setIsModeAdmin] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
+  const [menu, setMenu] = useState(fakeMenu.MEDIUM);
+  const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
+  const { username } = useContext(UserContext);
+
+  const handleAdd = (newProduct) => {
+    const menuCopy = [...menu];
+    const menuCopyUpdated = [newProduct, ...menuCopy];
+    setMenu(menuCopyUpdated);
+  };
+
+  const handleDelete = (idProduct) => {
+    const menuCopy = [...menu];
+
+    const menuCopyUpdated = menuCopy.filter(
+      (product) => product.id !== idProduct,
+    );
+    setMenu(menuCopyUpdated);
+  };
+
+  const resetMenu = () => {
+    setMenu(fakeMenu.MEDIUM);
+  };
 
   const orderContextValue = {
     isModeAdmin,
@@ -19,13 +44,19 @@ export default function OrderPage() {
     setIsCollapsed,
     currentTabSelected,
     setCurrentTabSelected,
+    menu,
+    handleAdd,
+    handleDelete,
+    resetMenu,
+    newProduct,
+    setNewProduct,
   };
 
   return (
     <OrderContext.Provider value={orderContextValue}>
       <OrderPageStyled>
         <div className="container">
-          <NavBar id={inputValue} inputValue={inputValue} />
+          <NavBar id={username} username={username} />
           <Main />
         </div>
       </OrderPageStyled>
