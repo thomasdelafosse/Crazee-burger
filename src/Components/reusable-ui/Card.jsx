@@ -55,6 +55,7 @@ const CardStyled = styled.div`
     /* width: Hug (252px);
     height: Hug (346.5px); */
     /* transition: all 200ms ease-out; */
+    cursor: pointer;
   }
   &:active {
     color: white;
