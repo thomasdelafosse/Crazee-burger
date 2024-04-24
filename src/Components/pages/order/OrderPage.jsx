@@ -1,5 +1,4 @@
-import { useContext, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useRef, useState } from "react";
 import styled from "styled-components";
 import { theme } from "../../../theme";
 import NavBar from "./Navbar/NavBar";
@@ -10,13 +9,12 @@ import { EMPTY_PRODUCT } from "./Admin/AdminPanel/AddForm.jsx";
 import UserContext from "../../../context/UserContext.jsx";
 
 export default function OrderPage() {
-  // const { username } = useParams();
   const [isModeAdmin, setIsModeAdmin] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
   const [menu, setMenu] = useState(fakeMenu.MEDIUM);
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
-  const { username } = useContext(UserContext);
+  const inputBaliseRef = useRef();
 
   const handleAdd = (newProduct) => {
     const menuCopy = [...menu];
@@ -50,13 +48,14 @@ export default function OrderPage() {
     resetMenu,
     newProduct,
     setNewProduct,
+    inputBaliseRef,
   };
 
   return (
     <OrderContext.Provider value={orderContextValue}>
       <OrderPageStyled>
         <div className="container">
-          <NavBar id={username} username={username} />
+          <NavBar />
           <Main />
         </div>
       </OrderPageStyled>

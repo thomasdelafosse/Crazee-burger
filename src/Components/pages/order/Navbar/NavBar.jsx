@@ -14,7 +14,7 @@ export default function NavBar() {
       <Link to={`/order/${username}`}>
         <Logo />
       </Link>
-      <NavBarRightSide id={username} />
+      <NavBarRightSide />
     </NavBarStyled>
   );
 }
