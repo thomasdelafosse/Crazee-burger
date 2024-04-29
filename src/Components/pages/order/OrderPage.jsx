@@ -6,7 +6,6 @@ import OrderContext from "../../../context/OrderContext";
 import Main from "./Main/Main";
 import { fakeMenu } from "../../fakeData/fakeMenu.jsx";
 import { EMPTY_PRODUCT } from "./Admin/AdminPanel/AddForm.jsx";
-import UserContext from "../../../context/UserContext.jsx";
 
 export default function OrderPage() {
   const [isModeAdmin, setIsModeAdmin] = useState(false);
