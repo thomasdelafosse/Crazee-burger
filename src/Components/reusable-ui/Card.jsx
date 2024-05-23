@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import PrimaryButton from "./PrimaryButton";
+import Button from "./Button";
 import { theme } from "../../theme";
 import { TiDelete } from "react-icons/ti";
 
@@ -9,9 +9,14 @@ export default function Card({
   leftDescription,
   onDelete,
   hasDeleteButton,
+  onClick,
 }) {
+  const openEditForm = () => {
+    alert("openEditForm");
+  };
+
   return (
-    <CardStyled className="produit">
+    <CardStyled onClick={onClick} className="produit">
       {hasDeleteButton && (
         <button
           className="delete-button"
@@ -29,7 +34,7 @@ export default function Card({
         <div className="description">
           <div className="left-description">{leftDescription}</div>
           <div className="right-description">
-            <PrimaryButton className="primary-button" label={"Ajouter"} />
+            <Button className="primary-button" label={"Ajouter"} />
           </div>
         </div>
       </div>
@@ -54,16 +59,20 @@ const CardStyled = styled.div`
     border: 1px solid #ff9f1b;
     /* width: Hug (252px);
     height: Hug (346.5px); */
-    /* transition: all 200ms ease-out; */
+    transition: all 200ms ease-out;
     cursor: pointer;
-  }
-  &:active {
-    color: white;
-    background-color: #ff9f1b;
-    border: 1px solid #ff9f1b;
+
+    &:active {
+      color: white;
+      background-color: #ff9f1b;
+      border: 1px solid #ff9f1b;
+    }
   }
 
   .delete-button {
+    &:hover:not(:disabled) {
+      color: red;
+    }
     position: absolute;
     top: 15px;
     right: 15px;

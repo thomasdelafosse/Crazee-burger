@@ -2,11 +2,11 @@ import { useContext, useState } from "react";
 import styled from "styled-components";
 
 import TextInput from "../../../../reusable-ui/TextInput.jsx";
-import Button from "../../../../reusable-ui/Button.jsx";
 import OrderContext from "../../../../../context/OrderContext";
 import ImagePreview from "./ImagePreview";
 import SubmitMessage from "./SubmitMessage.jsx";
 import { getInputTextsConfig } from "./InputTextConfig.jsx";
+import Button from "../../../../reusable-ui/Button.jsx";
 
 export const EMPTY_PRODUCT = {
   id: "",
