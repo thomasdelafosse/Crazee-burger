@@ -11,10 +11,6 @@ export default function Card({
   hasDeleteButton,
   onClick,
 }) {
-  const openEditForm = () => {
-    alert("openEditForm");
-  };
-
   return (
     <CardStyled onClick={onClick} className="produit">
       {hasDeleteButton && (
@@ -53,21 +49,6 @@ const CardStyled = styled.div`
   box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
   border-radius: ${theme.borderRadius.extraRound};
   position: relative;
-
-  &:hover:not(:disabled) {
-    color: #ff9f1b;
-    border: 1px solid #ff9f1b;
-    /* width: Hug (252px);
-    height: Hug (346.5px); */
-    transition: all 200ms ease-out;
-    cursor: pointer;
-
-    &:active {
-      color: white;
-      background-color: #ff9f1b;
-      border: 1px solid #ff9f1b;
-    }
-  }
 
   .delete-button {
     &:hover:not(:disabled) {
