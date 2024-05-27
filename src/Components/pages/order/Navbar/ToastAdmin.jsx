@@ -4,7 +4,9 @@ import styled from "styled-components";
 import { theme } from "../../../../theme";
 
 function ToastAdmin() {
-  return <ToastContainer className="toaster" bodyClassName="body-toast" />;
+  return (
+    <ToastContainerStyled className="toaster" bodyClassName="body-toast" />
+  );
 }
 
 const ToastContainerStyled = styled(ToastContainer)`
