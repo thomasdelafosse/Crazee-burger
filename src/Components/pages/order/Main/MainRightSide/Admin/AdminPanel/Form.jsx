@@ -1,37 +1,39 @@
-import React from "react"
-import styled from "styled-components"
-import TextInput from "../../../../../../reusable-ui/TextInput"
-import ImagePreview from "./ImagePreview"
-import { getInputTextsConfig } from "./inputTextConfig"
+import React from "react";
+import styled from "styled-components";
+import TextInput from "../../../../../../reusable-ui/TextInput";
+import ImagePreview from "./ImagePreview";
+import { getInputTextsConfig } from "./inputTextConfig";
 
-const Form = React.forwardRef(({ product, onSubmit, onChange, children }, ref) => {
-  // state (vide)
+const Form = React.forwardRef(
+  ({ product, onSubmit, onChange, children }, ref) => {
+    // state (vide)
 
-  // comportements (vide)
+    // comportements (vide)
 
-  const inputTexts = getInputTextsConfig(product)
+    const inputTexts = getInputTextsConfig(product);
 
-  // affichage
-  return (
-    <FormStyled onSubmit={onSubmit}>
-      <ImagePreview imageSource={product.imageSource} title={product.title} />
-      <div className="input-fields">
-        {inputTexts.map((input) => (
-          <TextInput
-            {...input}
-            key={input.id}
-            onChange={onChange}
-            version="minimalist"
-            ref={ref && input.name === "title" ? ref : null}
-          />
-        ))}
-      </div>
-      <div className="form-footer">{children}</div>
-    </FormStyled>
-  )
-})
+    // affichage
+    return (
+      <FormStyled onSubmit={onSubmit}>
+        <ImagePreview imageSource={product.imageSource} title={product.title} />
+        <div className="input-fields">
+          {inputTexts.map((input) => (
+            <TextInput
+              {...input}
+              key={input.id}
+              onChange={onChange}
+              version="minimalist"
+              ref={ref && input.name === "title" ? ref : null}
+            />
+          ))}
+        </div>
+        <div className="form-footer">{children}</div>
+      </FormStyled>
+    );
+  },
+);
 
-export default Form
+export default Form;
 
 const FormStyled = styled.form`
   /* border: 2px solid black; */
@@ -59,4 +61,4 @@ const FormStyled = styled.form`
     position: relative;
     top: 3px;
   }
-`
+`;

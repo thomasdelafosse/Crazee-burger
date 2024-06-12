@@ -2,11 +2,11 @@ import { useRef, useState } from "react";
 import styled from "styled-components";
 import { theme } from "../../../theme";
 import Main from "./Main/Main";
-import Navbar from "./Navbar/Navbar";
 import OrderContext from "../../../context/OrderContext";
 import { fakeMenu } from "../../../fakeData/fakeMenu";
 import { EMPTY_PRODUCT } from "../../../enums/product";
 import { deepClone } from "../../utils/array";
+import NavBar from "./Navbar/NavBar";
 
 export default function OrderPage() {
   // state
@@ -86,7 +86,7 @@ export default function OrderPage() {
     <OrderContext.Provider value={orderContextValue}>
       <OrderPageStyled>
         <div className="container">
-          <Navbar />
+          <NavBar />
           <Main />
         </div>
       </OrderPageStyled>

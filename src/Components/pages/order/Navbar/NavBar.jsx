@@ -1,29 +1,31 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Logo from "../../../reusable-ui/Logo";
-import NavBarRightSide from "./NavBarRightSide";
 import { theme } from "../../../../theme";
-import UserContext from "../../../../context/UserContext";
+import { refreshPage } from "../../../utils/window.jsx";
+import NavBarRightSide from "./NavBarRightSide";
 
-export default function NavBar() {
-  const { username } = useContext(UserContext);
-
+export default function Navbar() {
   return (
-    <NavBarStyled>
-      <Link to={`/order/${username}`}>
-        <Logo />
-      </Link>
+    <NavbarStyled>
+      <Logo className="logo-order-page" onClick={() => refreshPage()} />
       <NavBarRightSide />
-    </NavBarStyled>
+    </NavbarStyled>
   );
 }
 
-const NavBarStyled = styled.nav`
-  background-color: ${theme.colors.white};
-  border-radius: 15px 15px 0px 0px;
+const NavbarStyled = styled.nav`
+  background: ${theme.colors.white};
   height: 10vh;
   display: flex;
   justify-content: space-between;
   padding: 0 20px;
+
+  border-top-left-radius: ${theme.borderRadius.extraRound};
+  border-top-right-radius: ${theme.borderRadius.extraRound};
+  border-bottom: 1px solid ${theme.colors.greyLight};
+  /* align-items: center; */
+
+  .logo-order-page {
+    cursor: pointer;
+  }
 `;
