@@ -23,10 +23,7 @@ const ButtonStyled = styled.button`
 const extraStylePrimary = css`
   width: 100%;
   border: 1px solid red;
-  justify-content: center;
-  display: inline;
-  width: 100%;
-  border: 1px solid red;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   position: relative; //is used in case you want to create interactive icons where an icon replaces the text label.
@@ -87,7 +84,7 @@ const extraStyleSuccess = css`
   background: ${theme.colors.success};
   border: 1px solid ${theme.colors.success};
   border-radius: ${theme.borderRadius.round};
-  height: 35px;
+  height: 100%;
   padding: 0 1.5em;
   font-weight: ${theme.fonts.weights.semiBold};
   :hover {
@@ -101,7 +98,6 @@ const extraStyleSuccess = css`
     border: 1px solid ${theme.colors.success};
   }
 `;
-
 const extraStyle = {
   normal: extraStylePrimary,
   success: extraStyleSuccess,
