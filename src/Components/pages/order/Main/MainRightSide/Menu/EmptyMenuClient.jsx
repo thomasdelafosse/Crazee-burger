@@ -1,16 +1,14 @@
-import styled from "styled-components";
-import { theme } from "../../../../../theme";
+import styled from "styled-components"
+import { theme } from "../../../../../../theme"
 
 export default function EmptyMenuClient() {
   return (
     <EmptyMenuStyled>
       <span className="title">Victime de notre succès ! :D</span>
-      <span className="description">
-        De nouvelles recettes sont en cours de préparation.
-      </span>
+      <span className="description">De nouvelles recettes sont en cours de préparation.</span>
       <span className="description">À très vite !</span>
     </EmptyMenuStyled>
-  );
+  )
 }
 
 const EmptyMenuStyled = styled.div`
@@ -20,7 +18,7 @@ const EmptyMenuStyled = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center; // permet de diminuer la largeur du bouton resetMenu
 
   .title,
   .description {
@@ -38,4 +36,4 @@ const EmptyMenuStyled = styled.div`
     font-size: ${theme.fonts.size.P4};
     margin-top: 20px;
   }
-`;
+`

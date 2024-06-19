@@ -1,6 +1,6 @@
-import { FaHamburger } from "react-icons/fa";
-import { BsFillCameraFill } from "react-icons/bs";
-import { MdOutlineEuro } from "react-icons/md";
+import { FaHamburger } from "react-icons/fa"
+import { BsFillCameraFill } from "react-icons/bs"
+import { MdOutlineEuro } from "react-icons/md"
 
 export const getInputTextsConfig = (newProduct) => [
   {
@@ -17,8 +17,7 @@ export const getInputTextsConfig = (newProduct) => [
     name: "imageSource",
     value: newProduct.imageSource,
     type: "text",
-    placeholder:
-      "Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)",
+    placeholder: "Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)",
     Icon: <BsFillCameraFill />,
     version: "minimalist",
   },
@@ -31,4 +30,4 @@ export const getInputTextsConfig = (newProduct) => [
     Icon: <MdOutlineEuro />,
     version: "minimalist",
   },
-];
+]
