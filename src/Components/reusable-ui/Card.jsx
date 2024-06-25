@@ -12,6 +12,7 @@ export default function Card({
   onClick,
   isHoverable,
   isSelected,
+  onAdd,
 }) {
   // state (vide)
 
@@ -47,7 +48,7 @@ export default function Card({
               <Button
                 className="primary-button"
                 label={"Ajouter"}
-                onClick={(event) => event.stopPropagation()}
+                onClick={onAdd}
               />
             </div>
           </div>
@@ -60,6 +61,7 @@ export default function Card({
 const CardStyled = styled.div`
   ${({ $isHoverable }) => $isHoverable && hoverableStyle}
   border-radius: ${theme.borderRadius.extraRound};
+  /* border: 1px solid red; */
   height: 330px;
 
   .card {
@@ -90,7 +92,7 @@ const CardStyled = styled.div`
       background: none;
 
       .icon {
-        /* border: 1px solid green; */
+        /* border: 1px solid blue; */
         height: 100%;
         width: 100%;
       }
