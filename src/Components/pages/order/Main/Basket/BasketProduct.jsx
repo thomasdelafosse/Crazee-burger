@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { IMAGE_COMING_SOON } from "../../../../../enums/product";
-import BasketCard from "./BasketCard";
+import BasketCard from "./basketCard.jsx";
 
 export default function BasketProducts({
   basket,
