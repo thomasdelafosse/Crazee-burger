@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import styled from "styled-components";
 import { theme } from "../../../theme";
 import Main from "./Main/Main";
-import NavBar from "./Navbar/Navbar";
+import NavBar from "./Navbar/NavBar";
 import OrderContext from "../../../context/OrderContext";
 import { EMPTY_PRODUCT } from "../../../enums/product";
 import { useMenu } from "../../../hooks/useMenu";
