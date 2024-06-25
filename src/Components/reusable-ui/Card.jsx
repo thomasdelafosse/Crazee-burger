@@ -22,8 +22,8 @@ export default function Card({
     <CardStyled
       className="produit"
       onClick={onClick}
-      isHoverable={isHoverable}
-      isSelected={isSelected}
+      $isHoverable={isHoverable}
+      $isSelected={isSelected}
     >
       <div className="card">
         {hasDeleteButton && (
@@ -58,9 +58,8 @@ export default function Card({
 }
 
 const CardStyled = styled.div`
-  ${({ isHoverable }) => isHoverable && hoverableStyle}
+  ${({ $isHoverable }) => $isHoverable && hoverableStyle}
   border-radius: ${theme.borderRadius.extraRound};
-  /* border: 1px solid red; */
   height: 330px;
 
   .card {
@@ -91,7 +90,7 @@ const CardStyled = styled.div`
       background: none;
 
       .icon {
-        /* border: 1px solid blue; */
+        /* border: 1px solid green; */
         height: 100%;
         width: 100%;
       }
@@ -169,13 +168,14 @@ const CardStyled = styled.div`
       }
     }
 
-    ${({ isHoverable, isSelected }) =>
-      isHoverable && isSelected && selectedStyle}
+    ${({ $isHoverable, $isSelected }) =>
+      $isHoverable && $isSelected && selectedStyle}
   }
 `;
 
 const hoverableStyle = css`
-  :hover {
+  &:hover {
+    /* border: 1px solid blue; */
     transform: scale(1.05);
     transition: ease-out 0.4s;
     box-shadow: ${theme.shadows.orangeHighlight};
