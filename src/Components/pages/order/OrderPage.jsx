@@ -2,11 +2,12 @@ import { useRef, useState } from "react";
 import styled from "styled-components";
 import { theme } from "../../../theme";
 import Main from "./Main/Main";
-import NavBar from "./Navbar/NavBar";
+import Navbar from "./Navbar/Navbar";
 import OrderContext from "../../../context/OrderContext";
 import { EMPTY_PRODUCT } from "../../../enums/product";
 import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
+import { findObjectById } from "../../utils/array.jsx";
 
 export default function OrderPage() {
   // state
@@ -18,6 +19,14 @@ export default function OrderPage() {
   const titleEditRef = useRef();
   const { menu, handleAdd, handleDelete, handleEdit, resetMenu } = useMenu();
   const { basket, handleAddToBasket, handleDeleteBasketProduct } = useBasket();
+
+  const handleProductSelected = async (idProductClicked) => {
+    const productClickedOn = findObjectById(idProductClicked, menu);
+    await setIsCollapsed(false);
+    await setCurrentTabSelected("edit");
+    await setProductSelected(productClickedOn);
+    titleEditRef.current.focus();
+  };
 
   const orderContextValue = {
     isModeAdmin,
@@ -39,6 +48,7 @@ export default function OrderPage() {
     basket,
     handleAddToBasket,
     handleDeleteBasketProduct,
+    handleProductSelected,
   };
 
   //affichage
@@ -46,7 +56,7 @@ export default function OrderPage() {
     <OrderContext.Provider value={orderContextValue}>
       <OrderPageStyled>
         <div className="container">
-          <NavBar />
+          <Navbar />
           <Main />
         </div>
       </OrderPageStyled>

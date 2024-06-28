@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import Logo from "../../../reusable-ui/Logo";
-import { theme } from "../../../../theme";
+import Logo from "../../../reusable-ui/Logo.jsx";
+import { theme } from "../../../../theme/index.jsx";
 import { refreshPage } from "../../../utils/window.jsx";
-import NavBarRightSide from "./NavBarRightSide";
+import NavBarRightSide from "./NavBarRightSide.jsx";
 
 export default function Navbar() {
   return (

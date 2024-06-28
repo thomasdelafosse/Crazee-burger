@@ -1,6 +1,5 @@
-import React from "react"
-import styled from "styled-components"
-import { theme } from "../../../../../../../theme"
+import styled from "styled-components";
+import { theme } from "../../../../../../../theme";
 
 export default function ImagePreview({ imageSource, title }) {
   return (
@@ -11,7 +10,7 @@ export default function ImagePreview({ imageSource, title }) {
         <div className="empty-image">Aucune Image</div>
       )}
     </ImagePreviewStyled>
-  )
+  );
 }
 
 const ImagePreviewStyled = styled.div`
@@ -39,4 +38,4 @@ const ImagePreviewStyled = styled.div`
     color: ${theme.colors.greySemiDark};
     border-radius: ${theme.borderRadius.round};
   }
-`
+`;
