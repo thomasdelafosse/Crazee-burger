@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import styled from "styled-components";
 import { IMAGE_COMING_SOON } from "../../../../../enums/product";
-import BasketCard from "./BasketCard";
+import BasketCard from "./basketCard.jsx";
 import OrderContext from "../../../../../context/OrderContext";
 import { findObjectById } from "../../../../utils/array.jsx";
 import { checkIfProductIsClicked } from "../MainRightSide/Menu/helper";
@@ -36,13 +36,13 @@ export default function BasketProducts() {
               }
               quantity={basketProduct.quantity}
               onDelete={(event) => handleOnDelete(event, basketProduct.id)}
-              isClickable={isModeAdmin}
+              $isClickable={isModeAdmin}
               onClick={
                 isModeAdmin
                   ? () => handleProductSelected(basketProduct.id)
                   : null
               }
-              isSelected={checkIfProductIsClicked(
+              $isSelected={checkIfProductIsClicked(
                 basketProduct.id,
                 productSelected.id,
               )}

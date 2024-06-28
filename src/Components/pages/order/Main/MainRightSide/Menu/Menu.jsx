@@ -60,7 +60,7 @@ export default function Menu() {
             onDelete={(event) => handleCardDelete(event, id)}
             onClick={isModeAdmin ? () => handleProductSelected(id) : null}
             isHoverable={isModeAdmin}
-            isSelected={checkIfProductIsClicked(id, productSelected.id)}
+            $isSelected={checkIfProductIsClicked(id, productSelected.id)}
             onAdd={(event) => handleAddButton(event, id)}
           />
         );
