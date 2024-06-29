@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { BsPersonCircle } from "react-icons/bs";
@@ -6,11 +6,9 @@ import { IoChevronForward } from "react-icons/io5";
 import TextInput from "../../reusable-ui/TextInput";
 import Button from "../../reusable-ui/Button";
 import { theme } from "../../../theme";
-import UserContext from "../../../context/UserContext.jsx";
 
 export default function LoginForm() {
-  // const [InputValue, setInputValue] = useState("");
-  const { username, setUsername } = useContext(UserContext);
+  const [username, setUsername] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
