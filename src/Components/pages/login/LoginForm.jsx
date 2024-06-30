@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { BsPersonCircle } from "react-icons/bs";
@@ -6,15 +6,17 @@ import { IoChevronForward } from "react-icons/io5";
 import TextInput from "../../reusable-ui/TextInput";
 import Button from "../../reusable-ui/Button";
 import { theme } from "../../../theme";
+import { authenticateUser } from "../../../api/user";
 
 export default function LoginForm() {
   const [username, setUsername] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    navigate(`order/${username}`);
+    authenticateUser(username);
     setUsername("");
+    navigate(`order/${username}`);
   };
 
   const handleChange = (event) => {
