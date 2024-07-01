@@ -9,6 +9,8 @@ import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
 import { findObjectById } from "../../utils/array.jsx";
 import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { getMenu } from "../../../api/product.js";
 
 export default function OrderPage() {
   // state
@@ -18,7 +20,8 @@ export default function OrderPage() {
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
   const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
   const titleEditRef = useRef();
-  const { menu, handleAdd, handleDelete, handleEdit, resetMenu } = useMenu();
+  const { menu, setMenu, handleAdd, handleDelete, handleEdit, resetMenu } =
+    useMenu();
   const { basket, handleAddToBasket, handleDeleteBasketProduct } = useBasket();
   const { username } = useParams();
 
@@ -30,6 +33,15 @@ export default function OrderPage() {
     titleEditRef.current.focus();
   };
 
+  const initialiseMenu = async () => {
+    const menuReceived = await getMenu(username);
+    setMenu(menuReceived);
+  };
+
+  useEffect(() => {
+    initialiseMenu();
+  }, []);
+
   const orderContextValue = {
     username,
     isModeAdmin,
@@ -39,6 +51,7 @@ export default function OrderPage() {
     currentTabSelected,
     setCurrentTabSelected,
     menu,
+    setMenu,
     handleAdd,
     handleDelete,
     resetMenu,
