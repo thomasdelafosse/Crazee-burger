@@ -46,7 +46,7 @@ export default function Menu() {
   // affichage
   if (menu === undefined) return <Loader />;
 
-  if (isEmpty([menu])) {
+  if (isEmpty(menu)) {
     if (!isModeAdmin) return <EmptyMenuClient />;
     return <EmptyMenuAdmin onReset={resetMenu} />;
   }
