@@ -5,6 +5,7 @@ import BasketCard from "./basketCard.jsx";
 import OrderContext from "../../../../../context/OrderContext";
 import { findObjectById } from "../../../../utils/array.jsx";
 import { checkIfProductIsClicked } from "../MainRightSide/Menu/helper";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 export default function BasketProducts() {
   const {
@@ -24,33 +25,42 @@ export default function BasketProducts() {
 
   return (
     <BasketProductsStyled>
-      {basket.map((basketProduct) => {
-        const menuProduct = findObjectById(basketProduct.id, menu);
-        return (
-          <div className="basket-card" key={basketProduct.id}>
-            <BasketCard
-              {...menuProduct}
-              imageSource={
-                menuProduct.imageSource
-                  ? menuProduct.imageSource
-                  : IMAGE_COMING_SOON
-              }
-              quantity={basketProduct.quantity}
-              onDelete={(event) => handleOnDelete(event, basketProduct.id)}
-              $isClickable={isModeAdmin}
-              onClick={
-                isModeAdmin
-                  ? () => handleProductSelected(basketProduct.id)
-                  : null
-              }
-              $isSelected={checkIfProductIsClicked(
-                basketProduct.id,
-                productSelected.id,
-              )}
-            />
-          </div>
-        );
-      })}
+      <TransitionGroup>
+        {basket.map((basketProduct) => {
+          const menuProduct = findObjectById(basketProduct.id, menu);
+          return (
+            <CSSTransition
+              appear={true}
+              classNames={"test"}
+              key={basketProduct.id}
+              timeout={500}
+            >
+              <div className="basket-card">
+                <BasketCard
+                  {...menuProduct}
+                  imageSource={
+                    menuProduct.imageSource
+                      ? menuProduct.imageSource
+                      : IMAGE_COMING_SOON
+                  }
+                  quantity={basketProduct.quantity}
+                  onDelete={(event) => handleOnDelete(event, basketProduct.id)}
+                  $isClickable={isModeAdmin}
+                  onClick={
+                    isModeAdmin
+                      ? () => handleProductSelected(basketProduct.id)
+                      : null
+                  }
+                  $isSelected={checkIfProductIsClicked(
+                    basketProduct.id,
+                    productSelected.id,
+                  )}
+                />
+              </div>
+            </CSSTransition>
+          );
+        })}
+      </TransitionGroup>
     </BasketProductsStyled>
   );
 }
