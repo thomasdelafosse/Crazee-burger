@@ -15,24 +15,32 @@ export default function CasinoEffect({ count, className }) {
 }
 
 const CasinoEffectStyled = styled.div`
+  position: relative;
+  overflow-y: hidden;
+
+  span {
+    display: inline-block;
+  }
   // MOUNTING
   .count-animated-enter {
-    background: green;
+    transform: translateY(100%);
   }
   .count-animated-enter-active {
-    background: blue;
+    transform: translateY(0%);
     transition: 2s;
   }
   .count-animated-enter-done {
-    background: pink;
   }
 
   // UNMOUNTING
   .count-animated-exit {
-    background: orange;
+    transform: translateY(0%);
+    position: absolute;
+    left: 0;
+    bottom: 0;
   }
   .count-animated-exit-active {
-    background: purple;
+    transform: translateY(-100%);
     transition: 2s;
   }
 `;
