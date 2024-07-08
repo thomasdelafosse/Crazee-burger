@@ -11,7 +11,7 @@ export default function Card({
   onDelete,
   onClick,
   isHoverable,
-  isSelected,
+  $isSelected,
   onAdd,
 }) {
   // state (vide)
@@ -24,7 +24,7 @@ export default function Card({
       className="produit"
       onClick={onClick}
       $isHoverable={isHoverable}
-      $isSelected={isSelected}
+      $$isSelected={$isSelected}
     >
       <div className="card">
         {hasDeleteButton && (
@@ -170,8 +170,8 @@ const CardStyled = styled.div`
       }
     }
 
-    ${({ $isHoverable, $isSelected }) =>
-      $isHoverable && $isSelected && selectedStyle}
+    ${({ $isHoverable, $$isSelected }) =>
+      $isHoverable && $$isSelected && selectedStyle}
   }
 `;
 

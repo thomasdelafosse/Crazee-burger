@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { BsPersonCircle } from "react-icons/bs";
@@ -6,17 +6,17 @@ import { IoChevronForward } from "react-icons/io5";
 import TextInput from "../../reusable-ui/TextInput";
 import Button from "../../reusable-ui/Button";
 import { theme } from "../../../theme";
-import UserContext from "../../../context/UserContext.jsx";
-
+import { authenticateUser } from "../../../api/user";
+import Welcome from "./Welcome.jsx";
 export default function LoginForm() {
-  // const [InputValue, setInputValue] = useState("");
-  const { username, setUsername } = useContext(UserContext);
+  const [username, setUsername] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    navigate(`order/${username}`);
+    authenticateUser(username);
     setUsername("");
+    navigate(`order/${username}`);
   };
 
   const handleChange = (event) => {
@@ -25,11 +25,7 @@ export default function LoginForm() {
 
   return (
     <LoginFormStyled action="submit" onSubmit={handleSubmit}>
-      <div>
-        <h1>Bienvenue chez nous !</h1>
-        <hr />
-        <h2>Connectez-vous</h2>
-      </div>
+      <Welcome />
       <div>
         <TextInput
           value={username}
