@@ -1,17 +1,15 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { theme } from "../../../theme";
 import Main from "./Main/Main";
-import NavBar from "./Navbar/NavBar.jsx";
+import NavBar from "./Navbar/NavBar";
 import OrderContext from "../../../context/OrderContext";
 import { EMPTY_PRODUCT } from "../../../enums/product";
 import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
 import { findObjectById } from "../../utils/array.jsx";
 import { useParams } from "react-router-dom";
-import { useEffect } from "react";
-import { getMenu } from "../../../api/product.js";
-import { getLocalStorage } from "../../utils/window.jsx";
+import { initialiseUserSession } from "./helpers/initialiseUserSession";
 
 export default function OrderPage() {
   // state
@@ -35,22 +33,8 @@ export default function OrderPage() {
     titleEditRef.current.focus();
   };
 
-  const initialiseMenu = async () => {
-    const menuReceived = await getMenu(username);
-    setMenu(menuReceived);
-  };
-
-  const initialiseBasket = () => {
-    const basketReceived = getLocalStorage(username); // localStorage est synchrone pas besoin de "await"
-    setBasket(basketReceived);
-  };
-
   useEffect(() => {
-    initialiseMenu();
-  }, []);
-
-  useEffect(() => {
-    initialiseBasket();
+    initialiseUserSession(username, setMenu, setBasket);
   }, []);
 
   const orderContextValue = {
@@ -62,7 +46,6 @@ export default function OrderPage() {
     currentTabSelected,
     setCurrentTabSelected,
     menu,
-    setMenu,
     handleAdd,
     handleDelete,
     resetMenu,
@@ -78,7 +61,7 @@ export default function OrderPage() {
     handleProductSelected,
   };
 
-  //affichage
+  //affichage (render)
   return (
     <OrderContext.Provider value={orderContextValue}>
       <OrderPageStyled>

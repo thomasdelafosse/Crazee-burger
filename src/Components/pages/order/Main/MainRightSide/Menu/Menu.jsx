@@ -12,7 +12,7 @@ import {
   IMAGE_COMING_SOON,
 } from "../../../../../../enums/product";
 import { isEmpty } from "../../../../../utils/array.jsx";
-import Loader from "./Loader.jsx";
+import Loader from "./Loader";
 
 export default function Menu() {
   const {
@@ -33,7 +33,7 @@ export default function Menu() {
   const handleCardDelete = (event, idProductToDelete) => {
     event.stopPropagation();
     handleDelete(idProductToDelete, username);
-    handleDeleteBasketProduct(idProductToDelete);
+    handleDeleteBasketProduct(idProductToDelete, username);
     idProductToDelete === productSelected.id &&
       setProductSelected(EMPTY_PRODUCT);
   };
@@ -64,7 +64,7 @@ export default function Menu() {
             onDelete={(event) => handleCardDelete(event, id)}
             onClick={isModeAdmin ? () => handleProductSelected(id) : null}
             isHoverable={isModeAdmin}
-            $isSelected={checkIfProductIsClicked(id, productSelected.id)}
+            isSelected={checkIfProductIsClicked(id, productSelected.id)}
             onAdd={(event) => handleAddButton(event, id)}
           />
         );
