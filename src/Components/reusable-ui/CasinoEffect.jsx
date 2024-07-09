@@ -1,4 +1,4 @@
-import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 import styled from "styled-components";
 
 export default function CasinoEffect({ count, className }) {
@@ -8,7 +8,7 @@ export default function CasinoEffect({ count, className }) {
       className="transition-group"
     >
       <CSSTransition classNames="count-animated" timeout={300} key={count}>
-        <span className={className}> {count}</span>
+        <span className={className}>{count}</span>
       </CSSTransition>
     </TransitionGroup>
   );
@@ -21,7 +21,8 @@ const CasinoEffectStyled = styled.div`
   span {
     display: inline-block;
   }
-  // MOUNTING
+
+  /* MOUNTING */
   .count-animated-enter {
     transform: translateY(100%);
   }
@@ -32,7 +33,7 @@ const CasinoEffectStyled = styled.div`
   .count-animated-enter-done {
   }
 
-  // UNMOUNTING
+  /* UNMOUNTING */
   .count-animated-exit {
     transform: translateY(0%);
     position: absolute;
