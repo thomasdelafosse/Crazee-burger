@@ -31,7 +31,7 @@ export default function BasketProducts() {
           return (
             <CSSTransition
               appear={true}
-              classNames={"test"}
+              classNames={"transition-product"}
               key={basketProduct.id}
               timeout={500}
             >
@@ -66,20 +66,49 @@ export default function BasketProducts() {
 }
 
 const BasketProductsStyled = styled.div`
-  /* border: 1px solid red; */
   flex: 1;
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
 
+  .transition-product-appear {
+    transform: translateX(100px);
+    opacity: 0%;
+  }
+
+  .transition-product-appear-active {
+    transform: translateX(0px);
+    transition: 0.5s;
+    opacity: 100%;
+  }
+
+  .transition-product-enter {
+    transform: translateX(100px);
+    opacity: 0%;
+  }
+  .transition-product-enter-active {
+    transform: translateX(0px);
+    transition: 0.5s;
+    opacity: 100%;
+  }
+
+  .transition-product-exit {
+    transform: translateX(0px);
+    opacity: 100%;
+  }
+
+  .transition-product-exit-active {
+    transform: translateX(-100px);
+    transition: 0.5s;
+    opacity: 0%;
+  }
+
   .basket-card {
-    /* border: 1px solid blue; */
     margin: 10px 16px;
     height: 86px;
     box-sizing: border-box;
     &:first-child {
       margin-top: 20px;
-      /* border: 1px solid red; */
     }
     &:last-child {
       margin-bottom: 20px;
