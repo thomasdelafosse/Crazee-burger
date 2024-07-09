@@ -1,8 +1,8 @@
-import React from "react";
 import styled, { css } from "styled-components";
 import { MdDeleteForever } from "react-icons/md";
-import { theme } from "../../../../../theme";
-import { formatPrice } from "../../../../utils/maths.jsx";
+import { theme } from "../../../../../../theme/index.jsx";
+import { formatPrice } from "../../../../../utils/maths.jsx";
+import CasinoEffect from "../../../../../reusable-ui/CasinoEffect.jsx";
 
 export default function BasketCard({
   title,
@@ -10,17 +10,17 @@ export default function BasketCard({
   quantity,
   imageSource,
   className,
-  $isClickable,
+  isClickable,
   onClick,
   onDelete,
-  $isSelected,
+  isSelected,
 }) {
   return (
     <BasketCardStyled
       className={className}
-      $isClickable={$isClickable}
+      $isClickable={isClickable}
       onClick={onClick}
-      $isSelected={$isSelected}
+      $isSelected={isSelected}
     >
       <div className="delete-button" onClick={onDelete}>
         <MdDeleteForever className="icon" />
@@ -36,7 +36,7 @@ export default function BasketCard({
           <span className="price">{formatPrice(price)}</span>
         </div>
         <div className="quantity">
-          <span>x {quantity}</span>
+          <CasinoEffect count={`x ${quantity}`} />
         </div>
       </div>
     </BasketCardStyled>
@@ -44,7 +44,7 @@ export default function BasketCard({
 }
 
 const BasketCardStyled = styled.div`
-  cursor: ${({ $isModeAdmin }) => ($isModeAdmin ? "pointer" : "auto")};
+  cursor: ${({ isClickable }) => (isClickable ? "pointer" : "auto")};
   /* border: 1px solid red; */
   box-sizing: border-box;
   height: 86px;
