@@ -1,5 +1,5 @@
 import { doc, getDoc, setDoc } from "firebase/firestore";
-import { db } from "./firebase-config.js";
+import { db } from "./firebase-config.jsx";
 import { fakeMenu } from "../fakeData/fakeMenu.jsx";
 
 export const getUser = async (userId) => {
