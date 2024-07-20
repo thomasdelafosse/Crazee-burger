@@ -40,14 +40,14 @@ export const getInputTextsConfig = (newProduct) => [
 export const getSelectInputConfig = (newProduct) => [
   {
     id: "3",
-    name: "isAvailableOptions",
+    name: "isAvailable",
     value: newProduct.isAvailable,
     options: isAvailableOptions,
     className: "is-available",
   },
   {
     id: "4",
-    name: "isPublicisedOptions",
+    name: "isPublicised",
     value: newProduct.isPublicised,
     options: isPublicisedOptions,
     className: "is-publicised",
