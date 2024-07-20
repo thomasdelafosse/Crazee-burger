@@ -75,16 +75,7 @@ const FormStyled = styled.form`
       grid-area: 2/1/3/4;
     }
     .price {
-      /* grid-area: 3/1/4/2; */
-    }
-
-    .is-available {
-      background-color: pink;
-      /* grid-area: 3/1/4/2; */
-    }
-    .is-publicised {
-      background-color: yellow;
-      /* grid-area: 3/1/4/2; */
+      grid-area: 3/1/4/2;
     }
   }
 
