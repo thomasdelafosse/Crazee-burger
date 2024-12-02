@@ -2,7 +2,7 @@ import { useContext } from "react";
 import styled from "styled-components";
 import OrderContext from "../../../../../../context/OrderContext";
 import { theme } from "../../../../../../theme";
-import { formatPrice } from "../../../../../utils/maths.jsx";
+import { formatPrice } from "../../../../../utils/maths";
 import Card from "../../../../../reusable-ui/Card";
 import EmptyMenuAdmin from "./EmptyMenuAdmin";
 import EmptyMenuClient from "./EmptyMenuClient";
@@ -11,7 +11,7 @@ import {
   EMPTY_PRODUCT,
   IMAGE_COMING_SOON,
 } from "../../../../../../enums/product";
-import { isEmpty } from "../../../../../utils/array.jsx";
+import { isEmpty } from "../../../../../utils/array";
 import Loader from "./Loader";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { menuAnimation } from "../../../../../../theme/animations";

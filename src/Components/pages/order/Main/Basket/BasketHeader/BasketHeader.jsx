@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import OrderContext from "../../../../../../context/OrderContext.jsx";
-import { theme } from "../../../../../../theme/index.jsx";
-import { formatPrice } from "../../../../../utils/maths.jsx";
-import Header from "../../../../../reusable-ui/Header.jsx";
-import { calculateSumToPay } from "./helper.jsx";
-import CasinoEffect from "../../../../../reusable-ui/CasinoEffect.jsx";
+import OrderContext from "../../../../../../context/OrderContext";
+import { theme } from "../../../../../../theme/index";
+import { formatPrice } from "../../../../../utils/maths";
+import Header from "../../../../../reusable-ui/Header";
+import { calculateSumToPay } from "./helper";
+import CasinoEffect from "../../../../../reusable-ui/CasinoEffect";
 
 export default function BasketHeader() {
   const { basket, menu } = useContext(OrderContext);

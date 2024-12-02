@@ -7,7 +7,7 @@ import TextInput from "../../reusable-ui/TextInput";
 import Button from "../../reusable-ui/Button";
 import { theme } from "../../../theme";
 import { authenticateUser } from "../../../api/user";
-import Welcome from "./Welcome.jsx";
+import Welcome from "./Welcome";
 export default function LoginForm() {
   const [username, setUsername] = useState("");
   const navigate = useNavigate();

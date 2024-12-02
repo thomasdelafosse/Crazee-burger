@@ -1,9 +1,9 @@
 import { useContext } from "react";
 
 import { IMAGE_COMING_SOON } from "../../../../../../enums/product";
-import BasketCard from "./basketCard.jsx";
+import BasketCard from "./basketCard";
 import OrderContext from "../../../../../../context/OrderContext";
-import { findObjectById } from "../../../../../utils/array.jsx";
+import { findObjectById } from "../../../../../utils/array";
 import { checkIfProductIsClicked } from "../../MainRightSide/Menu/helper";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { basketAnimation } from "../../../../../../theme/animations";
