@@ -1,5 +1,5 @@
 import { getMenu } from "../../../../api/product";
-import { getLocalStorage } from "../../../utils/window.jsx";
+import { getLocalStorage } from "../../../utils/window";
 
 const intialiseMenu = async (username, setMenu) => {
   const menuReceived = await getMenu(username);

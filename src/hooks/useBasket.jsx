@@ -4,8 +4,8 @@ import {
   findObjectById,
   findIndexById,
   removeObjectById,
-} from "../Components/utils/array.jsx";
-import { setLocalStorage } from "../Components/utils/window.jsx";
+} from "../Components/utils/array";
+import { setLocalStorage } from "../Components/utils/window";
 
 export const useBasket = () => {
   const [basket, setBasket] = useState([]);
