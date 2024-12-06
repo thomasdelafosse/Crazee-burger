@@ -1,12 +1,19 @@
 import { theme } from "../../theme";
 import styled from "styled-components";
 
+type ToggleButtonProps = {
+  isModeAdmin: boolean;
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  labelIfChecked?: string;
+  labelIfUnchecked?: string;
+};
+
 export default function ToggleButton({
   isModeAdmin,
   onChange,
   labelIfChecked = "Fermer",
   labelIfUnchecked = "Ouvrir",
-}) {
+}: ToggleButtonProps) {
   return (
     <ToggleButtonStyled>
       <input
