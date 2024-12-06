@@ -1,7 +1,11 @@
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-export default function Logo({ className }) {
+type LogoProps = {
+  className?: string;
+};
+
+export default function Logo({ className }: LogoProps) {
   return (
     <LogoStyled className={className}>
       <h1>CRAZEE</h1>
