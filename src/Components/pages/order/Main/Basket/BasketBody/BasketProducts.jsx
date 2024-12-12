@@ -1,24 +1,24 @@
-import { useContext } from "react";
-
 import { IMAGE_COMING_SOON } from "../../../../../../enums/product";
 import BasketCard from "./basketCard";
-import OrderContext from "../../../../../../context/OrderContext";
+import { useOrderContext } from "../../../../../../context/OrderContext";
 import { findObjectById } from "../../../../../utils/array";
 import { checkIfProductIsClicked } from "../../MainRightSide/Menu/helper";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { basketAnimation } from "../../../../../../theme/animations";
 import styled from "styled-components";
+import { useParams } from "react-router-dom";
 
 export default function BasketProducts() {
+  const { username } = useParams();
+
   const {
-    username,
     basket,
     isModeAdmin,
     handleDeleteBasketProduct,
     menu,
     handleProductSelected,
     productSelected,
-  } = useContext(OrderContext);
+  } = useOrderContext();
 
   const handleOnDelete = (event, id) => {
     event.stopPropagation();
