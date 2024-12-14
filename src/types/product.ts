@@ -14,3 +14,8 @@ export type BasketProductQuantity = {
 };
 
 export type BasketProduct = MenuProduct & BasketProductQuantity;
+
+export type User = {
+  username: string;
+  menu: MenuProduct[];
+};
