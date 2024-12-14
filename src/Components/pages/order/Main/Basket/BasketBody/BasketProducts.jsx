@@ -1,4 +1,4 @@
-import { IMAGE_COMING_SOON } from "../../../../../../enums/product";
+import { IMAGE_COMING_SOON } from "../../../../../../constants/product";
 import BasketCard from "./basketCard";
 import { useOrderContext } from "../../../../../../context/OrderContext";
 import { findObjectById } from "../../../../../utils/array";

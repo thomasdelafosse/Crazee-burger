@@ -9,7 +9,7 @@ import { checkIfProductIsClicked } from "./helper";
 import {
   EMPTY_PRODUCT,
   IMAGE_COMING_SOON,
-} from "../../../../../../enums/product";
+} from "../../../../../../constants/product";
 import { isEmpty } from "../../../../../utils/array";
 import Loader from "./Loader";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
