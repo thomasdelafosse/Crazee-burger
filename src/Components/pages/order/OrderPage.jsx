@@ -17,8 +17,6 @@ export default function OrderPage() {
     initialiseUserSession(username, setMenu, setBasket);
   }, []);
 
-  console.log(username);
-
   //affichage (render)
   return (
     <OrderPageStyled>

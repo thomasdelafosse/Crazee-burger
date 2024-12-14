@@ -1,5 +1,5 @@
 import { useOrderContext } from "../../../../../../../context/OrderContext";
-import { EMPTY_PRODUCT } from "../../../../../../../enums/product";
+import { EMPTY_PRODUCT } from "../../../../../../../constants/product";
 import Form from "./Form";
 import { useSuccessMessage } from "../../../../../../../hooks/useSuccessMessage";
 import { replaceFrenchCommaWithDot } from "../../../../../../utils/maths";
