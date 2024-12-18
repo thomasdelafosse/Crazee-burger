@@ -1,5 +1,5 @@
 export enum ADMIN_TAB_LABEL {
-  ADD = "add",
   EDIT = "edit",
+  ADD = "add",
   CHEVRON = "chevron",
 }

@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import { theme } from "../../../../theme";
 import MainRightSide from "./MainRightSide/MainRightSide";
-import BasketBody from "./Basket/BasketBody/BasketBody";
+import Basket from "./Basket/Basket";
 
 export default function Main() {
   return (
     <MainStyled>
-      <BasketBody />
+      <Basket />
       <MainRightSide />
     </MainStyled>
   );

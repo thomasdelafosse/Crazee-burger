@@ -1,8 +1,9 @@
+import React from "react";
 import styled, { css } from "styled-components";
 import { MdDeleteForever } from "react-icons/md";
-import { theme } from "../../../../../../theme/index";
-import { formatPrice } from "../../../../../utils/maths";
+import { theme } from "../../../../../../theme";
 import CasinoEffect from "../../../../../reusable-ui/CasinoEffect";
+import Sticker from "../../../../../reusable-ui/Sticker";
 
 export default function BasketCard({
   title,
@@ -14,26 +15,28 @@ export default function BasketCard({
   onClick,
   onDelete,
   isSelected,
+  isPublicised,
 }) {
   return (
     <BasketCardStyled
       className={className}
-      $isClickable={isClickable}
+      isClickable={isClickable}
       onClick={onClick}
-      $isSelected={isSelected}
+      isSelected={isSelected}
     >
       <div className="delete-button" onClick={onDelete}>
         <MdDeleteForever className="icon" />
       </div>
       <div className="image">
         <img src={imageSource} alt={title} />
+        {isPublicised && <Sticker className="badge-new" />}
       </div>
       <div className="text-info">
         <div className="left-info">
           <div className="title">
             <span>{title}</span>
           </div>
-          <span className="price">{formatPrice(price)}</span>
+          <span className="price">{price}</span>
         </div>
         <div className="quantity">
           <CasinoEffect count={`x ${quantity}`} />
@@ -61,6 +64,7 @@ const BasketCardStyled = styled.div`
   .image {
     box-sizing: border-box;
     height: 70px;
+    /* border: 1px solid red; */
     img {
       padding: 5px;
       box-sizing: border-box;
@@ -73,6 +77,8 @@ const BasketCardStyled = styled.div`
   .text-info {
     user-select: none;
     box-sizing: border-box;
+    /* background: green; */
+    /* border: 1px solid green; */
     display: grid;
     grid-template-columns: 70% 1fr;
     font-size: ${theme.fonts.size.P0};
@@ -82,10 +88,11 @@ const BasketCardStyled = styled.div`
       display: grid;
       grid-template-rows: 60% 40%;
       margin-left: 21px;
-
+      /* align-items: center; */
       .title {
         display: flex;
         align-items: center;
+        /* background: yellow; */
         font-family: ${theme.fonts.family.stylish};
         font-size: ${theme.fonts.size.P3};
         line-height: 32px;
@@ -95,20 +102,25 @@ const BasketCardStyled = styled.div`
         min-width: 0;
         span {
           overflow: hidden;
+          /* width: 100%; */
           white-space: nowrap;
           text-overflow: ellipsis;
         }
       }
 
       .price {
+        /* background: blue; */
         font-size: ${theme.fonts.size.SM};
         font-weight: ${theme.fonts.weights.medium};
         font-family: ${theme.fonts.family.openSans};
+        /* color: ${theme.colors.white}; */
       }
     }
 
     .quantity {
       box-sizing: border-box;
+      /* border: 1px solid lightblue; */
+      /* background: lightblue; */
       font-weight: ${theme.fonts.weights.medium};
       display: flex;
       align-items: center;
@@ -126,6 +138,7 @@ const BasketCardStyled = styled.div`
   /* hover de la card */
   &:hover {
     .delete-button {
+      /* border: 1px solid red; */
       border: none;
       box-sizing: border-box;
       position: absolute;
