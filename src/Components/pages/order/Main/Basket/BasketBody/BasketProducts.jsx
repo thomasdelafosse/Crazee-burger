@@ -1,16 +1,21 @@
-import { IMAGE_COMING_SOON } from "../../../../../../constants/product";
-import BasketCard from "./basketCard";
+import React from "react";
+import styled from "styled-components";
+import {
+  BASKET_MESSAGE,
+  IMAGE_COMING_SOON,
+} from "../../../../../../constants/product";
+import BasketCard from "./BasketCard";
 import { useOrderContext } from "../../../../../../context/OrderContext";
-import { findObjectById } from "../../../../../utils/array";
+import { findObjectById } from "../../../../../../utils/array";
 import { checkIfProductIsClicked } from "../../MainRightSide/Menu/helper";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { basketAnimation } from "../../../../../../theme/animations";
-import styled from "styled-components";
+import { formatPrice } from "../../../../../../utils/maths";
+import { convertStringToBoolean } from "../../../../../../utils/string";
+import Sticker from "../../../../../reusable-ui/Sticker";
 import { useParams } from "react-router-dom";
 
 export default function BasketProducts() {
-  const { username } = useParams();
-
   const {
     basket,
     isModeAdmin,
@@ -19,6 +24,8 @@ export default function BasketProducts() {
     handleProductSelected,
     productSelected,
   } = useOrderContext();
+
+  const { username } = useParams();
 
   const handleOnDelete = (event, id) => {
     event.stopPropagation();
@@ -55,11 +62,17 @@ export default function BasketProducts() {
                     ? () => handleProductSelected(basketProduct.id)
                     : null
                 }
-                isSelected={checkIfProductIsClicked(
+                $isSelected={checkIfProductIsClicked(
                   basketProduct.id,
                   productSelected.id,
                 )}
                 className={"card"}
+                price={
+                  convertStringToBoolean(menuProduct.isAvailable)
+                    ? formatPrice(menuProduct.price)
+                    : BASKET_MESSAGE.NOT_AVAILABLE
+                }
+                isPublicised={convertStringToBoolean(menuProduct.isPublicised)}
               />
             </div>
           </CSSTransition>
@@ -81,12 +94,22 @@ const BasketProductsStyled = styled.div`
     margin: 10px 16px;
     height: 86px;
     box-sizing: border-box;
+    position: relative;
     &:first-child {
       margin-top: 20px;
       /* border: 1px solid red; */
     }
     &:last-child {
       margin-bottom: 20px;
+    }
+
+    .badge-new {
+      position: absolute;
+      z-index: 1;
+      bottom: 10%;
+      left: 21%;
+      transform: translateY(-21%);
+      transform: translateX(-5%);
     }
   }
 

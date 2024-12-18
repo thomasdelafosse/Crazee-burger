@@ -1,13 +1,15 @@
-import ReactDOM from "react-dom/client";
-import App from "./App";
+import { createRoot } from "react-dom/client";
 import "./index.css";
-import { BrowserRouter } from "react-router-dom";
-import { OrderContextProvider } from "./context/OrderContext";
+import { ThemeProvider } from "styled-components";
+import { theme } from "@/theme/theme";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./routers/router";
+import { OrderContextProvider } from "@/context/OrderContext";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <OrderContextProvider>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </OrderContextProvider>,
+createRoot(document.getElementById("root")).render(
+  <ThemeProvider theme={theme}>
+    <OrderContextProvider>
+      <RouterProvider router={router} />
+    </OrderContextProvider>
+  </ThemeProvider>,
 );

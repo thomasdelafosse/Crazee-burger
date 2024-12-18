@@ -1,16 +1,16 @@
-import styled from "styled-components";
-import { theme } from "../../theme";
-import { ComponentProps } from "react";
+import styled from "styled-components"
+import { theme } from "@/theme/theme"
+import { ComponentProps } from "react"
 
 type Option = {
-  optionValue?: string | number | readonly string[];
-  label: string;
-};
+  optionValue?: string | number | readonly string[],
+  label: string
+}
 
 type SelectInputProps = {
-  options: Option[];
-  Icon?: JSX.Element;
-} & ComponentProps<"select">;
+  options: Option[],
+  Icon: JSX.Element,
+} & ComponentProps<"select">
 
 export default function SelectInput({
   options,
@@ -32,7 +32,7 @@ export default function SelectInput({
         ))}
       </select>
     </SelectInputStyled>
-  );
+  )
 }
 
 const SelectInputStyled = styled.div`
@@ -60,7 +60,7 @@ const SelectInputStyled = styled.div`
     width: 100%;
     outline: 0;
   }
-`; // commente/décommente une ligne CSS pour connaître son effet sur le composant
+` // commente/décommente une ligne CSS pour connaître son effet sur le composant
 
 // Attention à deux props "value":
 // 1️⃣ value dans <select/> (valeur selectionnée) ==> onChange est lié à cette value

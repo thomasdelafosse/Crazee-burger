@@ -1,16 +1,17 @@
-import { theme } from "../../theme";
-import styled from "styled-components";
+import React from "react"
+import styled from "styled-components"
+import { theme } from "@/theme/theme"
 
 type ToggleButtonProps = {
-  isModeAdmin: boolean;
-  onChange: React.ChangeEventHandler<HTMLInputElement>;
-  labelIfChecked?: string;
-  labelIfUnchecked?: string;
-};
+  isChecked: boolean,
+  onToggle?: React.ChangeEventHandler<HTMLInputElement>,
+  labelIfChecked?: string,
+  labelIfUnchecked?: string,
+}
 
 export default function ToggleButton({
-  isModeAdmin,
-  onChange,
+  isChecked,
+  onToggle,
   labelIfChecked = "Fermer",
   labelIfUnchecked = "Ouvrir",
 }: ToggleButtonProps) {
@@ -20,8 +21,8 @@ export default function ToggleButton({
         type="checkbox"
         className="toggle"
         id="rounded"
-        checked={isModeAdmin}
-        onChange={onChange}
+        checked={isChecked}
+        onChange={onToggle}
       />
       <label
         htmlFor="rounded"
@@ -30,7 +31,7 @@ export default function ToggleButton({
         data-unchecked={labelIfUnchecked}
       ></label>
     </ToggleButtonStyled>
-  );
+  )
 }
 
 const ToggleButtonStyled = styled.div`
@@ -38,8 +39,6 @@ const ToggleButtonStyled = styled.div`
 
   display: flex;
   margin-right: 10px;
-  padding-right: 50px;
-
   input[type="checkbox"] {
     // Hides the square box but keeps the core "toggle functionality"
     &.toggle {
@@ -139,4 +138,4 @@ const ToggleButtonStyled = styled.div`
       background-color: ${theme.colors.primary};
     }
   }
-`;
+`

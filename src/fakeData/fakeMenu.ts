@@ -1,6 +1,6 @@
-import { MenuProduct } from "../types/product";
+import { MenuProduct } from "@/types/Product"
 
-const EMPTY: MenuProduct[] = [];
+const EMPTY: MenuProduct[] = []
 
 const SMALL: MenuProduct[] = [
   {
@@ -21,7 +21,7 @@ const SMALL: MenuProduct[] = [
     isAvailable: false,
     isPublicised: true,
   },
-];
+]
 
 const MEDIUM: MenuProduct[] = [
   {
@@ -69,9 +69,9 @@ const MEDIUM: MenuProduct[] = [
     isAvailable: true,
     isPublicised: false,
   },
-];
+]
 
-const LARGE: MenuProduct[] = [
+const LARGE = [
   {
     id: "1",
     imageSource: "/images/burger-bacon-egg.png",
@@ -162,11 +162,11 @@ const LARGE: MenuProduct[] = [
     isAvailable: true,
     isPublicised: false,
   },
-];
+]
 
 export const fakeMenu = {
   EMPTY,
   SMALL,
   MEDIUM,
   LARGE,
-};
+}

@@ -1,39 +1,31 @@
-import styled, { css } from "styled-components";
-import { theme } from "../../theme";
-import { ComponentProps } from "react";
+import styled, { css } from "styled-components"
+import { theme } from "../../theme/theme"
+import { ComponentProps } from "react"
 
-type ButtonVersion = "normal" | "success";
+type ButtonVersion = "normal" | "success"
 
 type ButtonProps = {
-  label?: string;
-  Icon?: JSX.Element;
-  version?: ButtonVersion;
-} & ComponentProps<"button">;
+  label: string,
+  Icon?: JSX.Element,
+  version?: ButtonVersion,
+} & ComponentProps<"button">
 
-export default function Button({
-  label,
-  Icon,
-  className,
-  version = "normal",
-  onClick,
-}: ButtonProps) {
+export default function Button({ label, Icon, className, version = "normal", onClick, disabled }: ButtonProps) {
   return (
-    <ButtonStyled className={className} version={version} onClick={onClick}>
+    <ButtonStyled className={className} version={version} onClick={onClick} disabled={disabled}>
       <span>{label}</span>
       <div className="icon">{Icon && Icon}</div>
     </ButtonStyled>
-  );
+  )
 }
 
-type ButtonStyledProps = {
-  version: ButtonVersion;
-};
+type ButtonStyledProps = { version: ButtonVersion }
 
 const ButtonStyled = styled.button<ButtonStyledProps>`
   ${({ version }) => extraStyle[version]};
-`;
+`
 
-const extraStylePrimary = css`
+const extraStyleNormal = css`
   width: 100%;
   border: 1px solid red;
   display: inline-flex;
@@ -51,6 +43,7 @@ const extraStylePrimary = css`
   color: white;
   background-color: #ff9f1b;
   border: 1px solid #ff9f1b;
+  cursor: pointer;
 
   :hover {
     color: ${theme.colors.primary};
@@ -63,7 +56,7 @@ const extraStylePrimary = css`
     color: ${theme.colors.white};
   }
 
-  &.is-disabled {
+  &:disabled {
     opacity: 50%;
     cursor: not-allowed;
     z-index: 2;
@@ -89,7 +82,7 @@ const extraStylePrimary = css`
     justify-content: center;
     align-items: center;
   }
-`;
+`
 
 const extraStyleSuccess = css`
   cursor: pointer;
@@ -110,8 +103,8 @@ const extraStyleSuccess = css`
     background: ${theme.colors.success};
     border: 1px solid ${theme.colors.success};
   }
-`;
+`
 const extraStyle = {
-  normal: extraStylePrimary,
+  normal: extraStyleNormal,
   success: extraStyleSuccess,
-};
+}
