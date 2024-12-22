@@ -1,6 +1,6 @@
-import { MenuProduct } from "@/types/Product"
+import { MenuProduct } from "@/types/productType";
 
-const EMPTY: MenuProduct[] = []
+const EMPTY: MenuProduct[] = [];
 
 const SMALL: MenuProduct[] = [
   {
@@ -21,7 +21,7 @@ const SMALL: MenuProduct[] = [
     isAvailable: false,
     isPublicised: true,
   },
-]
+];
 
 const MEDIUM: MenuProduct[] = [
   {
@@ -69,7 +69,7 @@ const MEDIUM: MenuProduct[] = [
     isAvailable: true,
     isPublicised: false,
   },
-]
+];
 
 const LARGE = [
   {
@@ -162,11 +162,11 @@ const LARGE = [
     isAvailable: true,
     isPublicised: false,
   },
-]
+];
 
 export const fakeMenu = {
   EMPTY,
   SMALL,
   MEDIUM,
   LARGE,
-}
+};
