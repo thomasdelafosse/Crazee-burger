@@ -36,17 +36,29 @@ export default function Menu() {
   const { username } = useParams();
 
   // comportements (gestionnaires d'événement ou "event handlers")
-  const handleCardDelete = (event, idProductToDelete) => {
+  const handleCardDelete = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    idProductToDelete: string,
+  ) => {
     event.stopPropagation();
-    handleDelete(idProductToDelete, username);
-    handleDeleteBasketProduct(idProductToDelete, username);
+    if (username) {
+      handleDelete(idProductToDelete, username);
+      handleDeleteBasketProduct(idProductToDelete, username);
+    }
     idProductToDelete === productSelected.id &&
       setProductSelected(EMPTY_PRODUCT);
   };
 
-  const handleAddButton = (event, idProductToAdd) => {
+  const handleAddButton = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    idProductToAdd: string,
+  ) => {
     event.stopPropagation();
-    handleAddToBasket(idProductToAdd, username);
+    if (username) handleAddToBasket(idProductToAdd, username);
+  };
+
+  const handleCardClick = (isModeAdmin: boolean, id: string) => {
+    isModeAdmin && handleProductSelected(id);
   };
 
   let cardContainerClassName = isModeAdmin
@@ -58,7 +70,7 @@ export default function Menu() {
 
   if (isEmpty(menu)) {
     if (!isModeAdmin) return <EmptyMenuClient />;
-    return <EmptyMenuAdmin onReset={() => resetMenu(username)} />;
+    return username && <EmptyMenuAdmin onReset={() => resetMenu(username)} />;
   }
 
   return (
@@ -75,7 +87,7 @@ export default function Menu() {
                   leftDescription={formatPrice(price)}
                   hasDeleteButton={isModeAdmin}
                   onDelete={(event) => handleCardDelete(event, id)}
-                  onClick={isModeAdmin ? () => handleProductSelected(id) : null}
+                  onClick={() => handleCardClick(isModeAdmin, id)}
                   isHoverable={isModeAdmin}
                   isSelected={checkIfProductIsClicked(id, productSelected.id)}
                   onAdd={(event) => handleAddButton(event, id)}
