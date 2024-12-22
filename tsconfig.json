@@ -21,12 +21,12 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
-      "@/*" : ["src/*"], // ne fonctionne que à partir de fichiers typescript (.ts et .tsx) pour importer des modules typescript (.ts et .tsx)
+      "@/*": ["src/*"] // ne fonctionne que à partir de fichiers typescript (.ts et .tsx) pour importer des modules typescript (.ts et .tsx)
       // "@/components/" : ["src/components/reusable-ui/*"] // superflu, inutile
     }
   },
-  "include": ["src/**/*"],                         
-  "exclude": ["node_modules", "build", "dist"]  
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "build", "dist"]
 }
 
 // ci dessous généré automatiquement avec la commande npx tsc --init mais le problème c'est que y'a rien de sélectionné par défaut.
@@ -140,5 +140,3 @@
 //     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
 //   }
 // }
-
-
